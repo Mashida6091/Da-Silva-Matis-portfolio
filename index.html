@@ -1,84 +1,204 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Portfolio - Matis Da Silva</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - BTS SIO SISR</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0f172a;--text:#e2e8f0;--card:#1e293b;--accent:#38bdf8
+    }
+
+    body.light{
+      --bg:#f1f5f9;--text:#0f172a;--card:#ffffff;--accent:#0ea5e9
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{background:var(--bg);color:var(--text);transition:0.4s}
+
+    header{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:20px 50px;background:var(--bg);
+      position:fixed;width:100%;top:0;border-bottom:1px solid #1e293b;z-index:1000
+    }
+
+    header h1{color:var(--accent)}
+    nav a{margin-left:20px;text-decoration:none;color:var(--text)}
+    nav a:hover{color:var(--accent)}
+
+    .toggle{cursor:pointer;padding:5px 10px;border:1px solid var(--accent);border-radius:6px}
+
+    section{padding:100px 50px;max-width:1100px;margin:auto}
+
+    .hero{height:100vh;display:flex;flex-direction:column;justify-content:center}
+    .hero h2{font-size:3rem}
+    .hero span{color:var(--accent)}
+
+    .typing{
+      border-right:3px solid var(--accent);
+      white-space:nowrap;
+      overflow:hidden;
+      animation:typing 3s steps(20), blink .7s infinite
+    }
+
+    @keyframes typing{
+      from{width:0}
+      to{width:100%}
+    }
+
+    @keyframes blink{
+      50%{border-color:transparent}
+    }
+
+    .btn{display:inline-block;margin-top:20px;padding:10px 20px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none}
+
+    .card{
+      background:var(--card);padding:20px;border-radius:12px;
+      margin-top:20px;box-shadow:0 10px 25px rgba(0,0,0,0.2);
+      opacity:0;transform:translateY(40px);transition:0.6s
+    }
+
+    .card.show{opacity:1;transform:translateY(0)}
+
+    h2{margin-bottom:20px;color:var(--accent)}
+
+    .skills-bar{
+      margin-top:10px
+    }
+
+    .bar{
+      height:10px;background:#334155;border-radius:10px;margin:5px 0;overflow:hidden
+    }
+
+    .bar span{
+      display:block;height:100%;background:var(--accent);width:0;transition:2s
+    }
+
+    iframe{width:100%;height:600px;border-radius:10px;margin-top:20px}
+
+    footer{text-align:center;padding:20px;border-top:1px solid #1e293b;margin-top:50px}
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>Matis Da Silva</h1>
-    <p>BTS SIO SISR - Portfolio</p>
+  <h1>Portfolio SISR</h1>
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#presentation">Présentation</a>
+    <a href="#projets">Projets</a>
+    <a href="#stage">Stage</a>
+    <a href="#profil">Profil</a>
+    <a href="#veille">Veille</a>
+    <a href="#cv">CV</a>
+    <span class="toggle" onclick="toggleTheme()">🌙/☀️</span>
+  </nav>
 </header>
 
-<nav>
-    <a href="#presentation">Présentation</a>
-    <a href="#stages">Stages</a>
-    <a href="#projets">Projets</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#veille">Veille</a>
-</nav>
-
-<section id="presentation">
-    <h2>Présentation</h2>
-    <p>Je suis étudiant en BTS SIO option SISR, passionné par les systèmes et réseaux.</p>
-
-    <h3>Objectif</h3>
-    <p>Devenir administrateur systèmes et réseaux.</p>
-
-    <h3>Compétences</h3>
-    <ul>
-        <li>Active Directory</li>
-        <li>DHCP / DNS</li>
-        <li>VLAN / Routage</li>
-        <li>Linux (Heartbeat / DRBD)</li>
-    </ul>
-
-    <a href="CV.pdf" target="_blank">Voir mon CV</a>
+<section class="hero">
+  <h2 class="typing">Bonjour, je suis <span>Da Silva Matis</span></h2>
+  <p>Étudiant en BTS SIO option SISR</p>
+  <a href="#projets" class="btn">Voir mes projets</a>
 </section>
 
-<section id="stages">
-    <h2>Stages</h2>
-
-    <h3>MNH - Technicien support</h3>
-    <p>Gestion de parc, support utilisateur, ticketing JIRA.</p>
-
-    <ul>
-        <li>Support de proximité</li>
-        <li>Gestion incidents</li>
-        <li>Accompagnement stagiaire</li>
-    </ul>
+<section id="presentation">
+  <h2>Présentation</h2>
+  <div class="card">Étudiant passionné par les systèmes et réseaux.</div>
 </section>
 
 <section id="projets">
-    <h2>Projets</h2>
-
-    <h3>Active Directory</h3>
-    <p>Mise en place d’un domaine Windows Server.</p>
-
-    <h3>Réseau VLAN</h3>
-    <p>Configuration VLAN et routage Cisco.</p>
-
-    <h3>Serveur Linux</h3>
-    <p>Haute disponibilité avec Heartbeat et DRBD.</p>
+  <h2>Projets</h2>
+  <div class="card">Serveur Linux</div>
+  <div class="card">Infrastructure réseau</div>
 </section>
 
-<section id="certifications">
-    <h2>Certifications</h2>
-    <p>PSC1</p>
-    <p>BAFA (en cours)</p>
+<section id="stage">
+  <h2>Stage</h2>
+  <div class="card">Support + Jira + réseau</div>
+</section>
+
+<section id="profil">
+  <h2>Profil professionnel</h2>
+
+  <div class="card">
+    <p>Autonome, rigoureux et passionné par l’informatique, je suis spécialisé dans le support et les infrastructures réseaux.</p>
+  </div>
+
+  <div class="card">
+    <h3>Compétences techniques</h3>
+
+    <div class="skills-bar">
+      Windows / AD
+      <div class="bar"><span style="width:80%"></span></div>
+
+      Réseau
+      <div class="bar"><span style="width:75%"></span></div>
+
+      Support utilisateur
+      <div class="bar"><span style="width:90%"></span></div>
+
+      Linux
+      <div class="bar"><span style="width:70%"></span></div>
+    </div>
+
+  </div>
+
 </section>
 
 <section id="veille">
-    <h2>Veille technologique</h2>
-    <p>Sujet : Cybersécurité</p>
-    <p>Suivi des attaques et des solutions de sécurité.</p>
+  <h2>Veille</h2>
+  <div class="card">Cybersécurité</div>
+</section>
+
+<section id="cv">
+  <h2>CV</h2>
+  <div class="card">
+    <iframe src="assets/cv.pdf"></iframe>
+    <a class="btn" href="assets/cv.pdf" download>Télécharger</a>
+  </div>
 </section>
 
 <footer>
-    <p>© 2026 - Matis Da Silva</p>
+  <p>© 2026 - Da Silva Matis</p>
 </footer>
+
+<script>
+  function toggleTheme(){
+    document.body.classList.toggle('light')
+    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark')
+  }
+
+  // sauvegarde thème
+  window.onload = () => {
+    const saved = localStorage.getItem('theme')
+    if(saved === 'light') document.body.classList.add('light')
+
+    animateBars()
+  }
+
+  // animation scroll
+  const cards=document.querySelectorAll('.card')
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('show')
+      }
+    })
+  })
+  cards.forEach(card=>observer.observe(card))
+
+  // animation barres
+  function animateBars(){
+    document.querySelectorAll('.bar span').forEach(bar=>{
+      let width = bar.style.width
+      bar.style.width = '0'
+      setTimeout(()=>{bar.style.width = width},500)
+    })
+  }
+</script>
 
 </body>
 </html>
