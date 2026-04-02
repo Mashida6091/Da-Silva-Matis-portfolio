@@ -3,289 +3,265 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - BTS SIO SISR</title>
+  <title>Portfolio - Matis Da Silva - BTS SIO SISR</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#0f172a;--text:#e2e8f0;--card:#1e293b;--accent:#38bdf8
+    :root {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --card: #1e293b;
+      --accent: #38bdf8;
+      --accent-hover: #0ea5e9;
+      --border: rgba(255, 255, 255, 0.1);
     }
 
-    body.light{
-      --bg:#f1f5f9;--text:#0f172a;--card:#ffffff;--accent:#0ea5e9
+    body.light {
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --card: #ffffff;
+      --accent: #0284c7;
+      --accent-hover: #0369a1;
+      --border: rgba(0, 0, 0, 0.1);
     }
 
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-    body{background:var(--bg);color:var(--text);transition:0.4s}
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); transition: 0.4s; line-height: 1.6; }
 
-    header{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:20px 50px;background:var(--bg);
-      position:fixed;width:100%;top:0;border-bottom:1px solid #1e293b;z-index:1000
+    header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 5%; background: var(--bg);
+      position: fixed; width: 100%; top: 0; border-bottom: 1px solid var(--border); z-index: 1000;
+      backdrop-filter: blur(10px);
     }
 
-    header h1{color:var(--accent)}
-    nav a{margin-left:20px;text-decoration:none;color:var(--text)}
-    nav a:hover{color:var(--accent)}
+    header h1 { font-size: 1.5rem; color: var(--accent); }
+    nav a { margin-left: 20px; text-decoration: none; color: var(--text); font-weight: 400; font-size: 0.9rem; transition: 0.3s; }
+    nav a:hover { color: var(--accent); }
 
-    .toggle{cursor:pointer;padding:5px 10px;border:1px solid var(--accent);border-radius:6px}
+    .toggle { cursor: pointer; padding: 5px 12px; border: 1px solid var(--accent); border-radius: 20px; font-size: 0.8rem; }
 
-    section{padding:100px 50px;max-width:1100px;margin:auto}
+    section { padding: 80px 5%; max-width: 1100px; margin: auto; }
 
-    .hero{height:100vh;display:flex;flex-direction:column;justify-content:center}
-    .hero h2{font-size:3rem}
-    .hero span{color:var(--accent)}
+    .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .hero h2 { font-size: 3.5rem; line-height: 1.2; }
+    .hero span { color: var(--accent); }
+    
+    .typing-container { min-height: 4.5rem; }
 
-    .typing{
-      border-right:3px solid var(--accent);
-      white-space:nowrap;
-      overflow:hidden;
-      animation:typing 3s steps(20), blink .7s infinite
+    .btn { 
+      display: inline-block; margin-top: 25px; padding: 12px 28px; 
+      background: var(--accent); color: #fff; border-radius: 30px; 
+      text-decoration: none; font-weight: 600; transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    }
+    .btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+
+    .card {
+      background: var(--card); padding: 25px; border-radius: 16px;
+      margin-top: 20px; border: 1px solid var(--border);
+      opacity: 0; transform: translateY(30px); transition: 0.8s ease-out;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
-    @keyframes typing{
-      from{width:0}
-      to{width:100%}
+    .card.show { opacity: 1; transform: translateY(0); }
+    .card:hover { border-color: var(--accent); }
+
+    h2 { font-size: 2rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    h2::after { content: ""; height: 2px; width: 50px; background: var(--accent); display: inline-block; }
+
+    /* Skills */
+    .skills-bar { margin-top: 20px; }
+    .skill-label { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; }
+    .bar { height: 8px; background: rgba(100, 116, 139, 0.2); border-radius: 10px; margin-bottom: 15px; overflow: hidden; }
+    .bar span { display: block; height: 100%; background: var(--accent); width: 0; transition: 1.5s cubic-bezier(0.1, 0, 0.2, 1); }
+
+    /* Table Improvements */
+    .table-container { overflow-x: auto; margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; min-width: 500px; }
+    th { background: var(--accent); color: white; padding: 12px; text-align: left; }
+    td { padding: 12px; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .status { padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; background: #22c55e; color: white; }
+
+    iframe { width: 100%; height: 500px; border: none; border-radius: 12px; margin-top: 20px; }
+
+    footer { text-align: center; padding: 40px; opacity: 0.7; border-top: 1px solid var(--border); }
+
+    @media (max-width: 768px) {
+      header { padding: 15px 20px; }
+      nav a { display: none; } /* On cache les liens sur mobile pour simplifier ou prévoir un menu burger */
+      .hero h2 { font-size: 2.2rem; }
     }
-
-    @keyframes blink{
-      50%{border-color:transparent}
-    }
-
-    .btn{display:inline-block;margin-top:20px;padding:10px 20px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none}
-
-    .card{
-      background:var(--card);padding:20px;border-radius:12px;
-      margin-top:20px;box-shadow:0 10px 25px rgba(0,0,0,0.2);
-      opacity:0;transform:translateY(40px);transition:0.6s
-    }
-
-    .card.show{opacity:1;transform:translateY(0)}
-
-    h2{margin-bottom:20px;color:var(--accent)}
-
-    .skills-bar{
-      margin-top:10px
-    }
-
-    .bar{
-      height:10px;background:#334155;border-radius:10px;margin:5px 0;overflow:hidden
-    }
-
-    .bar span{
-      display:block;height:100%;background:var(--accent);width:0;transition:2s
-    }
-
-    iframe{width:100%;height:600px;border-radius:10px;margin-top:20px}
-
-    footer{text-align:center;padding:20px;border-top:1px solid #1e293b;margin-top:50px}
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Portfolio SISR</h1>
+  <h1>Matis<span>.SISR</span></h1>
   <nav>
-    <a href="#">Accueil</a>
     <a href="#presentation">Présentation</a>
     <a href="#projets">Projets</a>
-    <a href="#stage">Stage</a>
-    <a href="#profil">Profil</a>
-    <a href="#veille">Veille</a>
+    <a href="#stage">Stages</a>
+    <a href="#profil">Compétences</a>
     <a href="#cv">CV</a>
-    <span class="toggle" onclick="toggleTheme()">🌙/☀️</span>
+    <span class="toggle" onclick="toggleTheme()" id="themeBtn">🌙 Mode sombre</span>
   </nav>
 </header>
 
 <section class="hero">
-  <h2 class="typing">Bonjour, je suis <span>Da Silva Matis</span></h2>
-  <p>Étudiant en BTS SIO option SISR</p>
-  <a href="#projets" class="btn">Voir mes projets</a>
+  <div class="typing-container">
+    <h2>Bonjour, je suis <br><span>Da Silva Matis</span></h2>
+  </div>
+  <p style="font-size: 1.2rem; margin-top: 10px; opacity: 0.9;">Futur Technicien Systèmes et Réseaux</p>
+  <div style="display: flex; gap: 15px;">
+    <a href="#projets" class="btn">Parcourir mes travaux</a>
+    <a href="#cv" class="btn" style="background: transparent; border: 1px solid var(--accent); color: var(--accent);">Mon CV</a>
+  </div>
 </section>
 
 <section id="presentation">
   <h2>Présentation</h2>
-  <div class="card">Étudiant passionné par les systèmes et réseaux.</div>
+  <div class="card">
+    <p>Étudiant en <strong>BTS Services Informatiques aux Organisations</strong>, je me spécialise dans la gestion des infrastructures réseaux et l'administration systèmes. Passionné par l'automatisation et la cybersécurité, je cherche constamment à approfondir mes connaissances techniques.</p>
+  </div>
 </section>
 
 <section id="projets">
-  <h2>Projets</h2>
-  <div class="card">Serveur Linux</div>
-  <div class="card">Infrastructure réseau</div>
+  <h2>Projets Académiques</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+    <div class="card">
+      <h3>📁 Administration Linux</h3>
+      <p>Mise en place d'un serveur Debian : Configuration SSH, Apache2, et sécurisation via Iptables.</p>
+    </div>
+    <div class="card">
+      <h3>🌐 Maquette Réseau</h3>
+      <p>Conception d'une architecture sous Cisco Packet Tracer : VLANs, Routage Inter-VLAN et NAT.</p>
+    </div>
+  </div>
 </section>
 
 <section id="stage">
-  <h2>Stage</h2>
-
+  <h2>Expériences en Stage</h2>
   <div class="card">
-    <h3>Gestion des tickets (Jira)</h3>
-    <p>
-      Durant mes deux stages, j’ai pris en charge de nombreux tickets d’incidents et de demandes utilisateurs via l’outil Jira.
-      Cela m’a permis de développer mes compétences en diagnostic, résolution de problèmes et support informatique.
-    </p>
+    <h3>Support & Administration (Jira Ticketing)</h3>
+    <p>Au cours de mes immersions professionnelles, j'ai été le point de contact pour la résolution d'incidents critiques.</p>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Ticket</th>
+            <th>Problématique</th>
+            <th>Action menée</th>
+            <th>Statut</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#082</td>
+            <td>Dysfonctionnement MS Teams</td>
+            <td>Clean cache & Réinstallation complète</td>
+            <td><span class="status">Résolu</span></td>
+          </tr>
+          <tr>
+            <td>#095</td>
+            <td>Compte utilisateur bloqué</td>
+            <td>Déverrouillage & Reset via Active Directory</td>
+            <td><span class="status">Résolu</span></td>
+          </tr>
+          <tr>
+            <td>#104</td>
+            <td>Poste non détecté sur le réseau</td>
+            <td>Brassage de port & Diagnostic switch</td>
+            <td><span class="status">Résolu</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-
-  <div class="card">
-    <h3>Types de tickets traités</h3>
-    <ul>
-      <li>Problèmes de connexion (réseau, comptes utilisateurs)</li>
-      <li>Réinitialisation de mots de passe (Active Directory)</li>
-      <li>Incidents logiciels (Outlook, Teams, applications internes)</li>
-      <li>Problèmes matériels (écrans, PC, câbles)</li>
-      <li>Installation et configuration de postes</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>Exemples de résolutions</h3>
-    <p><strong>Incident :</strong> Microsoft Teams ne se lance pas</p>
-    <p><strong>Solution :</strong> Désinstallation et réinstallation complète</p>
-
-    <p><strong>Incident :</strong> Mot de passe oublié</p>
-    <p><strong>Solution :</strong> Réinitialisation via Active Directory</p>
-
-    <p><strong>Incident :</strong> Écran non détecté</p>
-    <p><strong>Solution :</strong> Remplacement câble / configuration affichage</p>
-
-    <p><strong>Incident :</strong> Problème Outlook</p>
-    <p><strong>Solution :</strong> Utilisation OWA en solution temporaire</p>
-  </div>
-
-  <div class="card">
-    <h3>Compétences développées</h3>
-    <ul>
-      <li>✔️ Support utilisateur (hotline + ticketing)</li>
-      <li>✔️ Diagnostic et résolution d’incidents</li>
-      <li>✔️ Administration système (Active Directory)</li>
-      <li>✔️ Travail en environnement professionnel</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>Statistiques des tickets</h3>
-    <ul>
-      <li>Nombre de tickets traités : À compléter</li>
-      <li>Types principaux : Incident / Demande</li>
-      <li>Délai moyen : Rapide</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>Tableau des tickets (Jira)</h3>
-    <p>Extrait des tickets traités durant mes stages :</p>
-
-    <table style="width:100%; margin-top:15px; border-collapse:collapse;">
-      <thead>
-        <tr style="background:var(--accent); color:white;">
-          <th style="padding:10px">Ticket</th>
-          <th style="padding:10px">Problème</th>
-          <th style="padding:10px">Solution</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="padding:10px">#001</td>
-          <td>Teams ne fonctionne pas</td>
-          <td>Réinstallation</td>
-        </tr>
-        <tr>
-          <td style="padding:10px">#002</td>
-          <td>Mot de passe oublié</td>
-          <td>Reset AD</td>
-        </tr>
-        <tr>
-          <td style="padding:10px">#003</td>
-          <td>Écran non détecté</td>
-          <td>Changement câble</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p style="margin-top:10px; font-size:0.9em; opacity:0.8;">
-      (Tu peux remplacer ces données avec celles de ton fichier Excel pour un rendu encore plus professionnel.)
-    </p>
-  </div>
-
 </section>
 
 <section id="profil">
-  <h2>Profil professionnel</h2>
-
+  <h2>Compétences Techniques</h2>
   <div class="card">
-    <p>Autonome, rigoureux et passionné par l’informatique, je suis spécialisé dans le support et les infrastructures réseaux.</p>
-  </div>
-
-  <div class="card">
-    <h3>Compétences techniques</h3>
-
     <div class="skills-bar">
-      Windows / AD
-      <div class="bar"><span style="width:80%"></span></div>
+      <div class="skill-label"><span>Administration Windows Server / AD</span><span>85%</span></div>
+      <div class="bar"><span style="width:85%"></span></div>
 
-      Réseau
+      <div class="skill-label"><span>Réseau (Cisco, Switching, VLANs)</span><span>75%</span></div>
       <div class="bar"><span style="width:75%"></span></div>
 
-      Support utilisateur
+      <div class="skill-label"><span>Support Utilisateur & ITIL</span><span>90%</span></div>
       <div class="bar"><span style="width:90%"></span></div>
 
-      Linux
+      <div class="skill-label"><span>Environnement Linux (Debian/Ubuntu)</span><span>70%</span></div>
       <div class="bar"><span style="width:70%"></span></div>
     </div>
-
   </div>
-
-</section>
-
-<section id="veille">
-  <h2>Veille</h2>
-  <div class="card">Cybersécurité</div>
 </section>
 
 <section id="cv">
-  <h2>CV</h2>
-  <div class="card">
+  <h2>Curriculum Vitae</h2>
+  <div class="card" style="text-align: center;">
+    <p>Consultez ou téléchargez mon CV complet ci-dessous :</p>
     <iframe src="cv.pdf"></iframe>
-    <a class="btn" href="cv.pdf" download>Télécharger</a>
+    <br>
+    <a class="btn" href="cv.pdf" download>📥 Télécharger le PDF</a>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 - Da Silva Matis</p>
+  <p>© 2026 - Da Silva Matis | Portfolio BTS SIO SISR</p>
 </footer>
 
 <script>
   function toggleTheme(){
-    document.body.classList.toggle('light')
-    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark')
+    const body = document.body;
+    const btn = document.getElementById('themeBtn');
+    body.classList.toggle('light');
+    
+    const isLight = body.classList.contains('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    btn.innerHTML = isLight ? '🌙 Mode sombre' : '☀️ Mode clair';
   }
 
-  // sauvegarde thème
   window.onload = () => {
-    const saved = localStorage.getItem('theme')
-    if(saved === 'light') document.body.classList.add('light')
-
-    animateBars()
+    const saved = localStorage.getItem('theme');
+    if(saved === 'light') {
+      document.body.classList.add('light');
+      document.getElementById('themeBtn').innerHTML = '🌙 Mode sombre';
+    }
+    animateBars();
   }
 
-  // animation scroll
-  const cards=document.querySelectorAll('.card')
-  const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
+  // Animation au scroll (Intersection Observer)
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
       if(entry.isIntersecting){
-        entry.target.classList.add('show')
+        entry.target.classList.add('show');
       }
-    })
-  })
-  cards.forEach(card=>observer.observe(card))
+    });
+  }, { threshold: 0.1 });
 
-  // animation barres
+  cards.forEach(card => observer.observe(card));
+
+  // Animation des barres de progression
   function animateBars(){
-    document.querySelectorAll('.bar span').forEach(bar=>{
-      let width = bar.style.width
-      bar.style.width = '0'
-      setTimeout(()=>{bar.style.width = width},500)
-    })
+    const skillsSection = document.querySelector('#profil');
+    const barsObserver = new IntersectionObserver(entries => {
+      if(entries[0].isIntersecting){
+        document.querySelectorAll('.bar span').forEach(bar => {
+          let targetWidth = bar.style.width;
+          bar.style.width = '0';
+          setTimeout(() => { bar.style.width = targetWidth; }, 200);
+        });
+        barsObserver.unobserve(skillsSection);
+      }
+    });
+    barsObserver.observe(skillsSection);
   }
 </script>
 
