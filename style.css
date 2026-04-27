@@ -30,7 +30,7 @@
   color-scheme: dark;
 }
 
-body.light {
+html.light {
   --bg-primary: #f8fafc;
   --bg-secondary: #f1f5f9;
   --bg-card: rgba(255, 255, 255, 0.7);
@@ -1072,7 +1072,7 @@ body.page-leaving .page-transition {
   border-radius: var(--radius-sm);
 }
 
-body.light .project-details {
+html.light .project-details {
   background: rgba(0, 0, 0, 0.05);
 }
 

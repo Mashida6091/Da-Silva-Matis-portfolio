@@ -39,7 +39,7 @@
       if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
     }
     draw() {
-      const isLight = document.body.classList.contains('light');
+      const isLight = document.documentElement.classList.contains('light');
       const color = isLight ? `rgba(59, 130, 246, ${this.opacity})` : `rgba(96, 165, 250, ${this.opacity})`;
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -57,7 +57,7 @@
   }
 
   function connectParticles() {
-    const isLight = document.body.classList.contains('light');
+    const isLight = document.documentElement.classList.contains('light');
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
@@ -106,13 +106,13 @@
 
   const saved = localStorage.getItem('theme');
   if (saved === 'light') {
-    document.body.classList.add('light');
+    document.documentElement.classList.add('light');
     icon.textContent = '☀️';
   }
 
   btn.addEventListener('click', () => {
-    document.body.classList.toggle('light');
-    const isLight = document.body.classList.contains('light');
+    document.documentElement.classList.toggle('light');
+    const isLight = document.documentElement.classList.contains('light');
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
     icon.textContent = isLight ? '☀️' : '🌙';
   });
