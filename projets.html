@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projets — Matis Da Silva | BTS SIO SISR</title>
+  <meta name="description" content="Projets académiques et professionnels réalisés par Matis Da Silva en BTS SIO SISR : administration Linux, maquette réseau, Active Directory.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page-transition" id="pageTransition"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- Header -->
+  <header id="main-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo page-link">
+        <span class="logo-bracket">&lt;</span>Matis<span class="logo-dot">.</span><span class="logo-accent">SISR</span><span class="logo-bracket"> /&gt;</span>
+      </a>
+      <nav id="main-nav">
+        <a href="index.html" class="nav-link page-link">Accueil</a>
+        <a href="parcours.html" class="nav-link page-link">Parcours</a>
+        <a href="projets.html" class="nav-link active page-link">Projets</a>
+        <a href="competences.html" class="nav-link page-link">Compétences</a>
+        <a href="stages.html" class="nav-link page-link">Stages</a>
+        <a href="contact.html" class="nav-link page-link">Contact</a>
+        <button class="theme-toggle" id="themeBtn" aria-label="Changer le thème">
+          <span class="theme-icon" id="themeIcon">🌙</span>
+        </button>
+      </nav>
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="mobile-link page-link">Accueil</a>
+    <a href="parcours.html" class="mobile-link page-link">Parcours</a>
+    <a href="projets.html" class="mobile-link active page-link">Projets</a>
+    <a href="competences.html" class="mobile-link page-link">Compétences</a>
+    <a href="stages.html" class="mobile-link page-link">Stages</a>
+    <a href="contact.html" class="mobile-link page-link">Contact</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="page-hero-tag">03 — Réalisations</span>
+      <h1 class="page-hero-title">Projets Académiques</h1>
+      <p class="page-hero-subtitle">Les projets techniques réalisés durant ma formation BTS SIO SISR</p>
+    </div>
+  </section>
+
+  <!-- Projets -->
+  <section class="section">
+    <div class="projects-grid-large">
+
+      <!-- Projet 1 -->
+      <div class="project-card-large glass reveal">
+        <div class="project-card-accent"></div>
+        <div class="project-card-body">
+          <div class="project-header">
+            <div class="project-icon-lg">🖥️</div>
+            <div class="project-tags">
+              <span class="tag">Linux</span>
+              <span class="tag">Serveur</span>
+            </div>
+          </div>
+          <h3>Administration Linux</h3>
+          <p>Mise en place d'un serveur Debian complet : configuration du service SSH pour l'accès distant sécurisé, déploiement du serveur web Apache2, et sécurisation de l'ensemble via les règles de pare-feu Iptables.</p>
+          <div class="project-details">
+            <div class="project-detail">
+              <span class="detail-label">Environnement</span>
+              <span class="detail-value">Debian 12 — VM VirtualBox</span>
+            </div>
+            <div class="project-detail">
+              <span class="detail-label">Objectif</span>
+              <span class="detail-value">Héberger un site web sécurisé</span>
+            </div>
+          </div>
+          <div class="project-techs">
+            <span>Debian</span>
+            <span>SSH</span>
+            <span>Apache2</span>
+            <span>Iptables</span>
+            <span>Bash</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet 2 -->
+      <div class="project-card-large glass reveal">
+        <div class="project-card-accent"></div>
+        <div class="project-card-body">
+          <div class="project-header">
+            <div class="project-icon-lg">🌐</div>
+            <div class="project-tags">
+              <span class="tag">Réseau</span>
+              <span class="tag">Cisco</span>
+            </div>
+          </div>
+          <h3>Maquette Réseau</h3>
+          <p>Conception et simulation d'une architecture réseau d'entreprise complète sous Cisco Packet Tracer : segmentation par VLANs, routage Inter-VLAN avec router-on-a-stick, et configuration du NAT pour l'accès Internet.</p>
+          <div class="project-details">
+            <div class="project-detail">
+              <span class="detail-label">Outil</span>
+              <span class="detail-value">Cisco Packet Tracer 8.x</span>
+            </div>
+            <div class="project-detail">
+              <span class="detail-label">Objectif</span>
+              <span class="detail-value">Simuler un réseau d'entreprise segmenté</span>
+            </div>
+          </div>
+          <div class="project-techs">
+            <span>Packet Tracer</span>
+            <span>VLAN</span>
+            <span>NAT / PAT</span>
+            <span>Routage</span>
+            <span>ACL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet 3 -->
+      <div class="project-card-large glass reveal">
+        <div class="project-card-accent"></div>
+        <div class="project-card-body">
+          <div class="project-header">
+            <div class="project-icon-lg">🛡️</div>
+            <div class="project-tags">
+              <span class="tag">Sécurité</span>
+              <span class="tag">Windows</span>
+            </div>
+          </div>
+          <h3>Active Directory</h3>
+          <p>Déploiement et administration d'un domaine Active Directory complet : création d'unités d'organisation, gestion des utilisateurs et groupes, mise en place de stratégies de groupe (GPO) pour sécuriser le parc.</p>
+          <div class="project-details">
+            <div class="project-detail">
+              <span class="detail-label">Environnement</span>
+              <span class="detail-value">Windows Server 2022</span>
+            </div>
+            <div class="project-detail">
+              <span class="detail-label">Objectif</span>
+              <span class="detail-value">Centraliser la gestion des utilisateurs</span>
+            </div>
+          </div>
+          <div class="project-techs">
+            <span>Windows Server</span>
+            <span>AD DS</span>
+            <span>GPO</span>
+            <span>DNS</span>
+            <span>DHCP</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projet 4 -->
+      <div class="project-card-large glass reveal">
+        <div class="project-card-accent"></div>
+        <div class="project-card-body">
+          <div class="project-header">
+            <div class="project-icon-lg">📡</div>
+            <div class="project-tags">
+              <span class="tag">Supervision</span>
+              <span class="tag">Monitoring</span>
+            </div>
+          </div>
+          <h3>Supervision Réseau</h3>
+          <p>Mise en place d'outils de supervision pour surveiller en temps réel l'état du réseau, des serveurs et des services critiques. Configuration d'alertes automatiques pour anticiper les incidents.</p>
+          <div class="project-details">
+            <div class="project-detail">
+              <span class="detail-label">Outils</span>
+              <span class="detail-value">Zabbix / Nagios</span>
+            </div>
+            <div class="project-detail">
+              <span class="detail-label">Objectif</span>
+              <span class="detail-value">Garantir la disponibilité des services</span>
+            </div>
+          </div>
+          <div class="project-techs">
+            <span>SNMP</span>
+            <span>Monitoring</span>
+            <span>Alertes</span>
+            <span>Dashboard</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Page Nav -->
+  <section class="section">
+    <div class="page-nav">
+      <a href="parcours.html" class="page-nav-link glass page-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <div>
+          <span class="page-nav-label">Page précédente</span>
+          <span class="page-nav-title">Parcours</span>
+        </div>
+      </a>
+      <a href="competences.html" class="page-nav-link glass page-link next">
+        <div>
+          <span class="page-nav-label">Page suivante</span>
+          <span class="page-nav-title">Compétences</span>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="logo footer-logo page-link">
+        <span class="logo-bracket">&lt;</span>Matis<span class="logo-dot">.</span><span class="logo-accent">SISR</span><span class="logo-bracket"> /&gt;</span>
+      </a>
+      <div class="footer-links">
+        <a href="parcours.html" class="page-link">Parcours</a>
+        <a href="projets.html" class="page-link">Projets</a>
+        <a href="competences.html" class="page-link">Compétences</a>
+        <a href="stages.html" class="page-link">Stages</a>
+        <a href="contact.html" class="page-link">Contact</a>
+      </div>
+      <p class="footer-text">© 2026 — Da Silva Matis | Portfolio BTS SIO SISR</p>
+      <p class="footer-sub">Conçu avec passion pour la tech</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Parcours — Matis Da Silva | BTS SIO SISR</title>
+  <meta name="description" content="Parcours de formation de Matis Da Silva : BTS SIO SISR, stages en entreprise et expériences professionnelles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page-transition" id="pageTransition"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- Header -->
+  <header id="main-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo page-link">
+        <span class="logo-bracket">&lt;</span>Matis<span class="logo-dot">.</span><span class="logo-accent">SISR</span><span class="logo-bracket"> /&gt;</span>
+      </a>
+      <nav id="main-nav">
+        <a href="index.html" class="nav-link page-link">Accueil</a>
+        <a href="parcours.html" class="nav-link active page-link">Parcours</a>
+        <a href="projets.html" class="nav-link page-link">Projets</a>
+        <a href="competences.html" class="nav-link page-link">Compétences</a>
+        <a href="stages.html" class="nav-link page-link">Stages</a>
+        <a href="contact.html" class="nav-link page-link">Contact</a>
+        <button class="theme-toggle" id="themeBtn" aria-label="Changer le thème">
+          <span class="theme-icon" id="themeIcon">🌙</span>
+        </button>
+      </nav>
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="mobile-link page-link">Accueil</a>
+    <a href="parcours.html" class="mobile-link active page-link">Parcours</a>
+    <a href="projets.html" class="mobile-link page-link">Projets</a>
+    <a href="competences.html" class="mobile-link page-link">Compétences</a>
+    <a href="stages.html" class="mobile-link page-link">Stages</a>
+    <a href="contact.html" class="mobile-link page-link">Contact</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="page-hero-tag">02 — Formation</span>
+      <h1 class="page-hero-title">Mon Parcours</h1>
+      <p class="page-hero-subtitle">De la découverte de l'informatique à la spécialisation en systèmes et réseaux</p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section">
+    <div class="timeline">
+      <div class="timeline-item reveal" data-side="left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <span class="timeline-date">2024 – 2026</span>
+          <h3>BTS SIO – Option SISR</h3>
+          <p>Formation en administration systèmes, réseaux et cybersécurité. Réalisation de projets pratiques sur des environnements virtualisés et stages en entreprise.</p>
+          <div class="timeline-tags">
+            <span class="tag">Windows Server</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Cisco</span>
+            <span class="tag">Virtualisation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal" data-side="right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <span class="timeline-date">2025</span>
+          <h3>Stage en entreprise — 2ème année</h3>
+          <p>Mise en pratique des compétences acquises : support utilisateur, gestion de tickets GLPI, administration réseau et maintenance du parc informatique.</p>
+          <div class="timeline-tags">
+            <span class="tag">GLPI</span>
+            <span class="tag">Support N1/N2</span>
+            <span class="tag">Active Directory</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal" data-side="left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <span class="timeline-date">2024</span>
+          <h3>Stage en entreprise — 1ère année</h3>
+          <p>Découverte du milieu professionnel IT. Observation et participation aux opérations de maintenance, câblage réseau et assistance utilisateurs.</p>
+          <div class="timeline-tags">
+            <span class="tag">Maintenance</span>
+            <span class="tag">Câblage</span>
+            <span class="tag">Assistance</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal" data-side="right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass">
+          <span class="timeline-date">2022 – 2024</span>
+          <h3>Baccalauréat</h3>
+          <p>Obtention du baccalauréat. Découverte de la passion pour l'informatique, les réseaux et la résolution de problèmes techniques.</p>
+          <div class="timeline-tags">
+            <span class="tag">Baccalauréat</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications / Veille -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-tag">Veille</span>
+      <h2 class="section-title">Veille technologique</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="presentation-grid">
+      <div class="card glass reveal">
+        <div class="card-icon">📡</div>
+        <h3>Réseaux & Cloud</h3>
+        <p>Suivi des évolutions en matière de virtualisation, cloud computing (AWS, Azure) et infrastructures réseau modernes (SD-WAN, Zero Trust).</p>
+      </div>
+      <div class="card glass reveal">
+        <div class="card-icon">🔐</div>
+        <h3>Cybersécurité</h3>
+        <p>Veille sur les menaces actuelles, les bonnes pratiques de sécurité, les normes (ISO 27001) et les outils de protection (SIEM, EDR).</p>
+      </div>
+      <div class="card glass reveal">
+        <div class="card-icon">🤖</div>
+        <h3>Automatisation</h3>
+        <p>Exploration des outils d'automatisation IT : scripting PowerShell/Bash, Ansible, et approches DevOps pour l'infrastructure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation entre pages -->
+  <section class="section">
+    <div class="page-nav">
+      <a href="index.html" class="page-nav-link glass page-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <div>
+          <span class="page-nav-label">Page précédente</span>
+          <span class="page-nav-title">Accueil</span>
+        </div>
+      </a>
+      <a href="projets.html" class="page-nav-link glass page-link next">
+        <div>
+          <span class="page-nav-label">Page suivante</span>
+          <span class="page-nav-title">Projets</span>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="logo footer-logo page-link">
+        <span class="logo-bracket">&lt;</span>Matis<span class="logo-dot">.</span><span class="logo-accent">SISR</span><span class="logo-bracket"> /&gt;</span>
+      </a>
+      <div class="footer-links">
+        <a href="parcours.html" class="page-link">Parcours</a>
+        <a href="projets.html" class="page-link">Projets</a>
+        <a href="competences.html" class="page-link">Compétences</a>
+        <a href="stages.html" class="page-link">Stages</a>
+        <a href="contact.html" class="page-link">Contact</a>
+      </div>
+      <p class="footer-text">© 2026 — Da Silva Matis | Portfolio BTS SIO SISR</p>
+      <p class="footer-sub">Conçu avec passion pour la tech</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
