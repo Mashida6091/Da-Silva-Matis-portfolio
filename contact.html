@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & CV — Matis Da Silva | BTS SIO SISR</title>
+  <meta name="description" content="Contactez Matis Da Silva ou téléchargez son CV pour une opportunité de stage ou d'alternance en administration systèmes et réseaux.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page-transition" id="pageTransition"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- Header -->
+  <header id="main-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo page-link">
+        <span class="logo-bracket">&lt;</span>Matis<span class="logo-dot">.</span><span class="logo-accent">SISR</span><span class="logo-bracket"> /&gt;</span>
+      </a>
+      <nav id="main-nav">
+        <a href="index.html" class="nav-link page-link">Accueil</a>
+        <a href="parcours.html" class="nav-link page-link">Parcours</a>
+        <a href="projets.html" class="nav-link page-link">Projets</a>
+        <a href="competences.html" class="nav-link page-link">Compétences</a>
+        <a href="stages.html" class="nav-link page-link">Stages</a>
+        <a href="contact.html" class="nav-link active page-link">Contact</a>
+        <button class="theme-toggle" id="themeBtn" aria-label="Changer le thème">
+          <span class="theme-icon" id="themeIcon">🌙</span>
+        </button>
+      </nav>
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="mobile-link page-link">Accueil</a>
+    <a href="parcours.html" class="mobile-link page-link">Parcours</a>
+    <a href="projets.html" class="mobile-link page-link">Projets</a>
+    <a href="competences.html" class="mobile-link page-link">Compétences</a>
+    <a href="stages.html" class="mobile-link page-link">Stages</a>
+    <a href="contact.html" class="mobile-link active page-link">Contact</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="page-hero-tag">06 — Échangeons</span>
+      <h1 class="page-hero-title">Contact & CV</h1>
+      <p class="page-hero-subtitle">N'hésitez pas à me contacter pour une opportunité ou pour toute question</p>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="section">
+    <div class="contact-grid">
+      <!-- Card CV -->
+      <div class="card glass reveal contact-card">
+        <div class="card-icon" style="font-size: 3rem; margin-bottom: 24px;">📄</div>
+        <h3 style="font-size: 1.5rem;">Curriculum Vitae</h3>
+        <p style="margin-bottom: 24px;">Consultez mon parcours complet, mes formations et mes expériences professionnelles en un seul document formaté pour l'impression.</p>
+        <a href="cv.pdf" class="btn btn-primary" target="_blank" style="width: 100%; justify-content: center;">
+          <span>Visualiser mon CV</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+
+      <!-- Card Email -->
+      <div class="card glass reveal contact-card">
+        <div class="card-icon" style="font-size: 3rem; margin-bottom: 24px;">✉️</div>
+        <h3 style="font-size: 1.5rem;">Me contacter par mail</h3>
+        <p style="margin-bottom: 24px;">Je suis actuellement à la recherche d'une alternance/stage. Envoyez-moi un message et je vous répondrai dans les plus brefs délais.</p>
+        <a href="mailto:matis.dasilva@email.com" class="btn btn-outline" style="width: 100%; justify-content: center;">
+          <span>Envoyer un email</span>
+        </a>
+      </div>
+      
+      <!-- Card LinkedIn / GitHub (Optionnel) -->
+      <div class="card glass reveal contact-card">
+        <div class="card-icon" style="font-size: 3rem; margin-bottom: 24px;">🔗</div>
+        <h3 style="font-size: 1.5rem;">Réseaux Professionnels</h3>
+        <p style="margin-bottom: 24px;">Retrouvez-moi sur LinkedIn pour suivre mon actualité ou sur GitHub pour voir mes scripts d'automatisation.</p>
+        <div style="display: flex; gap: 12px; width: 100%;">
+          <a href="#" class="btn btn-outline" style="flex: 1; justify-content: center; padding: 14px 10px;">
+            <span>LinkedIn</span>
+          </a>
+          <a href="#" class="btn btn-outline" style="flex: 1; justify-content: center; padding: 14px 10px;">
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page Nav -->
+  <section class="section">
+    <div class="page-nav">
+      <a href="stages.html" class="page-nav-link glass page-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <div>
+          <span class="page-nav-label">Page précédente</span>
+          <span class="page-nav-title">Stages</span>
+        </div>
+      </a>
+      <a href="index.html" class="page-nav-link glass page-link next">
+        <div>
+          <span class="page-nav-label">Retour au début</span>
+          <span class="page-nav-title">Accueil</span>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="logo footer-logo page-link">
+        <span class="logo-bracket">&lt;</span>Matis<span class="logo-dot">.</span><span class="logo-accent">SISR</span><span class="logo-bracket"> /&gt;</span>
+      </a>
+      <div class="footer-links">
+        <a href="parcours.html" class="page-link">Parcours</a>
+        <a href="projets.html" class="page-link">Projets</a>
+        <a href="competences.html" class="page-link">Compétences</a>
+        <a href="stages.html" class="page-link">Stages</a>
+        <a href="contact.html" class="page-link">Contact</a>
+      </div>
+      <p class="footer-text">© 2026 — Da Silva Matis | Portfolio BTS SIO SISR</p>
+      <p class="footer-sub">Conçu avec passion pour la tech</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

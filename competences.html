@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compétences — Matis Da Silva | BTS SIO SISR</title>
+  <meta name="description" content="Compétences techniques et savoir-faire de Matis Da Silva : Administration Windows/Linux, Réseau, Cybersécurité, ITIL.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page-transition" id="pageTransition"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- Header -->
+  <header id="main-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo page-link">
+        <span class="logo-bracket">&lt;</span>Matis<span class="logo-dot">.</span><span class="logo-accent">SISR</span><span class="logo-bracket"> /&gt;</span>
+      </a>
+      <nav id="main-nav">
+        <a href="index.html" class="nav-link page-link">Accueil</a>
+        <a href="parcours.html" class="nav-link page-link">Parcours</a>
+        <a href="projets.html" class="nav-link page-link">Projets</a>
+        <a href="competences.html" class="nav-link active page-link">Compétences</a>
+        <a href="stages.html" class="nav-link page-link">Stages</a>
+        <a href="contact.html" class="nav-link page-link">Contact</a>
+        <button class="theme-toggle" id="themeBtn" aria-label="Changer le thème">
+          <span class="theme-icon" id="themeIcon">🌙</span>
+        </button>
+      </nav>
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="mobile-link page-link">Accueil</a>
+    <a href="parcours.html" class="mobile-link page-link">Parcours</a>
+    <a href="projets.html" class="mobile-link page-link">Projets</a>
+    <a href="competences.html" class="mobile-link active page-link">Compétences</a>
+    <a href="stages.html" class="mobile-link page-link">Stages</a>
+    <a href="contact.html" class="mobile-link page-link">Contact</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="page-hero-tag">04 — Savoir-faire</span>
+      <h1 class="page-hero-title">Compétences Techniques</h1>
+      <p class="page-hero-subtitle">Technologies maîtrisées et niveau de compétence</p>
+    </div>
+  </section>
+
+  <!-- Compétences -->
+  <section class="section">
+    <div class="skills-grid">
+      <!-- Windows / AD -->
+      <div class="skill-card glass reveal">
+        <div class="skill-header">
+          <div class="skill-icon">🖧</div>
+          <h3>Administration Windows Server / AD</h3>
+        </div>
+        <p class="skill-desc">Déploiement AD DS, GPO, DNS, DHCP, gestion des utilisateurs, serveurs de fichiers.</p>
+        <div class="skill-bar-container">
+          <div class="skill-bar" data-width="85">
+            <div class="skill-fill"></div>
+          </div>
+          <span class="skill-percent">85%</span>
+        </div>
+      </div>
+
+      <!-- Réseau -->
+      <div class="skill-card glass reveal">
+        <div class="skill-header">
+          <div class="skill-icon">🔌</div>
+          <h3>Réseau (Switching, Routage, VLANs)</h3>
+        </div>
+        <p class="skill-desc">Configuration d'équipements Cisco (switchs/routeurs), inter-VLAN, NAT, ACL, spanning-tree.</p>
+        <div class="skill-bar-container">
+          <div class="skill-bar" data-width="75">
+            <div class="skill-fill"></div>
+          </div>
+          <span class="skill-percent">75%</span>
+        </div>
+      </div>
+
+      <!-- Support -->
+      <div class="skill-card glass reveal">
+        <div class="skill-header">
+          <div class="skill-icon">🎧</div>
+          <h3>Support Utilisateur & ITIL</h3>
+        </div>
+        <p class="skill-desc">Gestion des incidents/demandes, GLPI, prise en main à distance, bonnes pratiques ITIL.</p>
+        <div class="skill-bar-container">
+          <div class="skill-bar" data-width="90">
+            <div class="skill-fill"></div>
+          </div>
+          <span class="skill-percent">90%</span>
+        </div>
+      </div>
+
+      <!-- Linux -->
+      <div class="skill-card glass reveal">
+        <div class="skill-header">
+          <div class="skill-icon">🐧</div>
+          <h3>Environnement Linux (Debian)</h3>
+        </div>
+        <p class="skill-desc">Ligne de commande, gestion des paquets, droits d'accès, SSH, LAMP, scripts Bash.</p>
+        <div class="skill-bar-container">
+          <div class="skill-bar" data-width="70">
+            <div class="skill-fill"></div>
+          </div>
+          <span class="skill-percent">70%</span>
+        </div>
+      </div>
+
+      <!-- Cybersécurité -->
+      <div class="skill-card glass reveal">
+        <div class="skill-header">
+          <div class="skill-icon">🔒</div>
+          <h3>Cybersécurité & Pare-feu</h3>
+        </div>
+        <p class="skill-desc">Sensibilisation aux menaces, configuration pfSense/Iptables, sécurisation des accès.</p>
+        <div class="skill-bar-container">
+          <div class="skill-bar" data-width="65">
+            <div class="skill-fill"></div>
+          </div>
+          <span class="skill-percent">65%</span>
+        </div>
+      </div>
+
+      <!-- Virtualisation -->
+      <div class="skill-card glass reveal">
+        <div class="skill-header">
+          <div class="skill-icon">⚙️</div>
+          <h3>Virtualisation (VMware, Hyper-V)</h3>
+        </div>
+        <p class="skill-desc">Création et gestion de machines virtuelles, snapshots, réseaux virtuels, Proxmox.</p>
+        <div class="skill-bar-container">
+          <div class="skill-bar" data-width="72">
+            <div class="skill-fill"></div>
+          </div>
+          <span class="skill-percent">72%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outils -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-tag">Logiciels</span>
+      <h2 class="section-title">Outils utilisés</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-item glass reveal">
+        <span>Cisco Packet Tracer</span>
+      </div>
+      <div class="tool-item glass reveal">
+        <span>VirtualBox / VMware</span>
+      </div>
+      <div class="tool-item glass reveal">
+        <span>GLPI</span>
+      </div>
+      <div class="tool-item glass reveal">
+        <span>pfSense</span>
+      </div>
+      <div class="tool-item glass reveal">
+        <span>Wireshark</span>
+      </div>
+      <div class="tool-item glass reveal">
+        <span>Active Directory</span>
+      </div>
+      <div class="tool-item glass reveal">
+        <span>Windows Server</span>
+      </div>
+      <div class="tool-item glass reveal">
+        <span>Debian / Ubuntu</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page Nav -->
+  <section class="section">
+    <div class="page-nav">
+      <a href="projets.html" class="page-nav-link glass page-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <div>
+          <span class="page-nav-label">Page précédente</span>
+          <span class="page-nav-title">Projets</span>
+        </div>
+      </a>
+      <a href="stages.html" class="page-nav-link glass page-link next">
+        <div>
+          <span class="page-nav-label">Page suivante</span>
+          <span class="page-nav-title">Stages</span>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="logo footer-logo page-link">
+        <span class="logo-bracket">&lt;</span>Matis<span class="logo-dot">.</span><span class="logo-accent">SISR</span><span class="logo-bracket"> /&gt;</span>
+      </a>
+      <div class="footer-links">
+        <a href="parcours.html" class="page-link">Parcours</a>
+        <a href="projets.html" class="page-link">Projets</a>
+        <a href="competences.html" class="page-link">Compétences</a>
+        <a href="stages.html" class="page-link">Stages</a>
+        <a href="contact.html" class="page-link">Contact</a>
+      </div>
+      <p class="footer-text">© 2026 — Da Silva Matis | Portfolio BTS SIO SISR</p>
+      <p class="footer-sub">Conçu avec passion pour la tech</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

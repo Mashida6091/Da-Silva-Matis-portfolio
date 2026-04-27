@@ -282,3 +282,37 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ─── Page Transitions ───────────────────────────────
+(function initPageTransitions() {
+  // Reveal page on load
+  window.addEventListener('load', () => {
+    document.body.classList.add('page-loaded');
+  });
+
+  // Handle page leaving
+  const pageLinks = document.querySelectorAll('.page-link');
+  
+  pageLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      // Don't intercept if opening in new tab or if it's an anchor link
+      if (e.ctrlKey || e.metaKey || link.target === '_blank' || link.getAttribute('href').startsWith('#')) {
+        return;
+      }
+      
+      const href = link.getAttribute('href');
+      if (href && href !== '#') {
+        e.preventDefault();
+        
+        // Trigger leaving animation
+        document.body.classList.remove('page-loaded');
+        document.body.classList.add('page-leaving');
+        
+        // Navigate after animation completes
+        setTimeout(() => {
+          window.location.href = href;
+        }, 400); // Matches CSS transition duration
+      }
+    });
+  });
+})();
