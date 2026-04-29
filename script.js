@@ -107,14 +107,12 @@
   const saved = localStorage.getItem('theme');
   if (saved === 'light') {
     document.documentElement.classList.add('light');
-    icon.textContent = '☀️';
   }
 
   btn.addEventListener('click', () => {
     document.documentElement.classList.toggle('light');
     const isLight = document.documentElement.classList.contains('light');
     localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    icon.textContent = isLight ? '☀️' : '🌙';
   });
 })();
 
