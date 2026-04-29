@@ -31,10 +31,10 @@
 }
 
 html.light {
-  --bg-primary: #f0f2f5;
-  --bg-secondary: #e4e6eb;
-  --bg-card: rgba(240, 242, 245, 0.5);
-  --bg-card-hover: rgba(240, 242, 245, 0.8);
+  --bg-primary: #e9ecef;
+  --bg-secondary: #dee2e6;
+  --bg-card: rgba(233, 236, 239, 0.5);
+  --bg-card-hover: rgba(233, 236, 239, 0.8);
   --text-primary: #0f172a;
   --text-secondary: #334155;
   --text-muted: #64748b;
@@ -43,10 +43,10 @@ html.light {
   --accent-glow: rgba(59, 130, 246, 0.1);
   --accent-glow-strong: rgba(59, 130, 246, 0.2);
   --gradient-accent: linear-gradient(135deg, #3b82f6, #8b5cf6);
-  --gradient-bg: linear-gradient(135deg, #f0f2f5 0%, #e4e6eb 50%, #d8dadf 100%);
+  --gradient-bg: linear-gradient(135deg, #e9ecef 0%, #dee2e6 50%, #ced4da 100%);
   --border: rgba(15, 23, 42, 0.08);
   --border-hover: rgba(59, 130, 246, 0.2);
-  --glass: rgba(240, 242, 245, 0.6);
+  --glass: rgba(233, 236, 239, 0.6);
   --glass-border: rgba(15, 23, 42, 0.08);
   --shadow: 0 8px 32px rgba(15, 23, 42, 0.05);
   --shadow-hover: 0 16px 48px rgba(15, 23, 42, 0.08);
