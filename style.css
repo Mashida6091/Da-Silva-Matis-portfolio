@@ -194,6 +194,26 @@ header.scrolled {
   transform: scale(1.05);
 }
 
+.theme-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('majora-moon.png');
+  font-size: 0; /* Hide the default moon emoji */
+  color: transparent;
+}
+
+html.light .theme-icon {
+  background-image: none;
+  font-size: 1rem; /* Show the sun emoji */
+  color: inherit;
+  width: auto;
+  height: auto;
+}
+
 /* Burger */
 .burger {
   display: none;
