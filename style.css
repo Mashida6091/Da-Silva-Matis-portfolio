@@ -1129,12 +1129,17 @@ html.light .project-details {
 .skill-header .skill-icon {
   margin-bottom: 0;
   background: var(--accent-glow);
+  background-image: url('triforce.png');
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 48px;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
+  color: transparent; /* Hide any text/emoji */
 }
 
 .skill-desc {
