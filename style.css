@@ -31,25 +31,25 @@
 }
 
 html.light {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #f1f5f9;
-  --bg-card: rgba(255, 255, 255, 0.7);
-  --bg-card-hover: rgba(255, 255, 255, 0.9);
+  --bg-primary: #f1f5f9;
+  --bg-secondary: #e2e8f0;
+  --bg-card: rgba(255, 255, 255, 0.6);
+  --bg-card-hover: rgba(255, 255, 255, 0.85);
   --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
   --accent: #3b82f6;
   --accent-hover: #2563eb;
   --accent-glow: rgba(59, 130, 246, 0.1);
   --accent-glow-strong: rgba(59, 130, 246, 0.2);
   --gradient-accent: linear-gradient(135deg, #3b82f6, #8b5cf6);
-  --gradient-bg: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
-  --border: rgba(15, 23, 42, 0.06);
+  --gradient-bg: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #cbd5e1 100%);
+  --border: rgba(15, 23, 42, 0.1);
   --border-hover: rgba(59, 130, 246, 0.3);
-  --glass: rgba(255, 255, 255, 0.6);
-  --glass-border: rgba(15, 23, 42, 0.08);
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.12);
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(15, 23, 42, 0.1);
+  --shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 16px 48px rgba(15, 23, 42, 0.12);
   color-scheme: light;
 }
 
