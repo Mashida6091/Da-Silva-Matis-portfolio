@@ -31,25 +31,25 @@
 }
 
 html.light {
-  --bg-primary: #e5e7eb;
-  --bg-secondary: #d1d5db;
+  --bg-primary: #f0fdf4;
+  --bg-secondary: #dcfce7;
   --bg-card: rgba(255, 255, 255, 0.7);
   --bg-card-hover: rgba(255, 255, 255, 0.9);
-  --text-primary: #111827;
-  --text-secondary: #374151;
-  --text-muted: #6b7280;
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --accent-glow: rgba(37, 99, 235, 0.1);
-  --accent-glow-strong: rgba(37, 99, 235, 0.2);
-  --gradient-accent: linear-gradient(135deg, #2563eb, #7c3aed);
-  --gradient-bg: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
-  --border: rgba(0, 0, 0, 0.1);
-  --border-hover: rgba(37, 99, 235, 0.3);
-  --glass: rgba(229, 231, 235, 0.8);
-  --glass-border: rgba(0, 0, 0, 0.1);
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-  --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.1);
+  --text-primary: #064e3b;
+  --text-secondary: #065f46;
+  --text-muted: #34d399;
+  --accent: #059669;
+  --accent-hover: #047857;
+  --accent-glow: rgba(5, 150, 105, 0.1);
+  --accent-glow-strong: rgba(5, 150, 105, 0.2);
+  --gradient-accent: linear-gradient(135deg, #059669, #10b981);
+  --gradient-bg: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  --border: rgba(6, 78, 59, 0.1);
+  --border-hover: rgba(5, 150, 105, 0.3);
+  --glass: rgba(240, 253, 244, 0.8);
+  --glass-border: rgba(6, 78, 59, 0.1);
+  --shadow: 0 8px 32px rgba(6, 78, 59, 0.05);
+  --shadow-hover: 0 16px 48px rgba(6, 78, 59, 0.1);
   color-scheme: light;
 }
 
