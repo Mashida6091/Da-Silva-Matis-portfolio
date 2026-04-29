@@ -33,8 +33,8 @@
 html.light {
   --bg-primary: #e5e7eb;
   --bg-secondary: #d1d5db;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f9fafb;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --bg-card-hover: rgba(255, 255, 255, 0.9);
   --text-primary: #111827;
   --text-secondary: #374151;
   --text-muted: #6b7280;
@@ -44,13 +44,17 @@ html.light {
   --accent-glow-strong: rgba(37, 99, 235, 0.2);
   --gradient-accent: linear-gradient(135deg, #2563eb, #7c3aed);
   --gradient-bg: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
-  --border: rgba(0, 0, 0, 0.08);
-  --border-hover: rgba(37, 99, 235, 0.2);
-  --glass: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(0, 0, 0, 0.05);
+  --border: rgba(0, 0, 0, 0.1);
+  --border-hover: rgba(37, 99, 235, 0.3);
+  --glass: rgba(229, 231, 235, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.1);
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-  --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.1);
   color-scheme: light;
+}
+
+html.light body {
+  background: var(--bg-primary);
 }
 
 /* Reset */
@@ -65,6 +69,7 @@ html {
   scroll-padding-top: 80px;
   background: var(--gradient-bg);
   min-height: 100vh;
+  transition: background var(--transition);
 }
 
 body {
