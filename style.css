@@ -1411,3 +1411,84 @@ html.light .project-details {
     scrollbar-width: thin;
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   STAGE COMPARISON SECTION
+   ═══════════════════════════════════════════════════ */
+
+.stages-comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+
+.stage-column {
+  padding: 32px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  transition: all var(--transition);
+}
+
+.stage-column:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+
+.stage-column h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.stage-column p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.stage-divider {
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--accent), transparent);
+  align-self: stretch;
+}
+
+.stage-list {
+  list-style: none;
+  margin-top: 24px;
+}
+
+.stage-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.stage-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .stages-comparison {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .stage-divider {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: 10px 0;
+  }
+}
