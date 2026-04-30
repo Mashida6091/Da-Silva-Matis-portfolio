@@ -866,6 +866,7 @@ html.light .theme-icon {
 
 .stage-content {
   max-width: 900px;
+  margin: 0 auto;
 }
 
 .iframe-wrapper {
