@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet GSB — Matis Da Silva | BTS SIO SISR</title>
+  <meta name="description" content="Détails du projet Galaxy Swiss Bourdin (GSB) : Étude de contexte et câblage du laboratoire réseau.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="page-transition" id="pageTransition"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- Header -->
+  <header id="main-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo page-link">
+        <span class="logo-bracket">&lt;</span>Matis<span class="logo-dot">.</span><span class="logo-accent">SISR</span><span class="logo-bracket"> /&gt;</span>
+      </a>
+      <nav id="main-nav">
+        <a href="../index.html" class="nav-link page-link">Accueil</a>
+        <a href="../parcours.html" class="nav-link page-link">Parcours</a>
+        <a href="index.html" class="nav-link active page-link">Projets</a>
+        <a href="../competences.html" class="nav-link page-link">Compétences</a>
+        <a href="../stages.html" class="nav-link page-link">Stages</a>
+        <a href="../contact.html" class="nav-link page-link">Contact</a>
+        <button class="theme-toggle" id="themeBtn" aria-label="Changer le thème">
+          <span class="theme-icon" id="themeIcon">🌙</span>
+        </button>
+      </nav>
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="../index.html" class="mobile-link page-link">Accueil</a>
+    <a href="../parcours.html" class="mobile-link page-link">Parcours</a>
+    <a href="index.html" class="mobile-link active page-link">Projets</a>
+    <a href="../competences.html" class="mobile-link page-link">Compétences</a>
+    <a href="../stages.html" class="mobile-link page-link">Stages</a>
+    <a href="../contact.html" class="mobile-link page-link">Contact</a>
+  </div>
+
+  <!-- Project Hero -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="page-hero-tag">Projet Académique</span>
+      <h1 class="page-hero-title">Galaxy Swiss Bourdin (GSB)</h1>
+      <p class="page-hero-subtitle">Modernisation de l'infrastructure réseau et câblage structuré du laboratoire.</p>
+    </div>
+  </section>
+
+  <!-- Project Content -->
+  <section class="section">
+    <div class="project-details-grid">
+      
+      <!-- Context -->
+      <div class="project-info-card glass reveal">
+        <div class="card-icon">🏢</div>
+        <h2>Contexte de l'entreprise</h2>
+        <p>Le laboratoire Galaxy Swiss Bourdin (GSB) est une entreprise internationale issue de la fusion entre le géant américain Galaxy et le laboratoire européen Swiss Bourdin. Leader dans le secteur pharmaceutique, l'entreprise doit faire face à une restructuration majeure de son système d'information.</p>
+        <div class="file-link-container">
+          <a href="../GSB%20-%20Contexte.pdf" class="btn btn-outline" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            Consulter le contexte (PDF)
+          </a>
+        </div>
+      </div>
+
+      <!-- Lab Cabling -->
+      <div class="project-info-card glass reveal">
+        <div class="card-icon">🔌</div>
+        <h2>Câblage du Laboratoire</h2>
+        <p>Cette mission consistait à concevoir l'infrastructure physique d'un nouveau laboratoire. J'ai travaillé sur le choix des supports de transmission (Cat 6a), la disposition des prises RJ45, l'organisation de la baie de brassage et le respect des normes de câblage structuré (TIA/EIA-568).</p>
+        <div class="file-link-container">
+          <a href="../GSB%20-%20Ca%CC%82blage%20du%20labo.pdf" class="btn btn-outline" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            Plan de câblage (PDF)
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Technical Details -->
+    <div class="technical-grid reveal" style="margin-top: 4rem;">
+      <div class="tech-spec glass">
+        <h3>Technologies & Normes</h3>
+        <ul class="tech-list">
+          <li>Câblage catégorie 6a (10Gbps)</li>
+          <li>Norme EIA/TIA 568B</li>
+          <li>Brassage Ethernet & Fibre Optique</li>
+          <li>Adressage IP statique & dynamique</li>
+          <li>Segmentation VLAN (802.1Q)</li>
+        </ul>
+      </div>
+      <div class="tech-spec glass">
+        <h3>Livrables réalisés</h3>
+        <ul class="tech-list">
+          <li>Schéma d'implantation des prises</li>
+          <li>Inventaire matériel (Switchs, Patch Panels)</li>
+          <li>Dossier technique de l'infrastructure</li>
+          <li>Plan de test et de recette</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page Nav -->
+  <section class="section">
+    <div class="page-nav">
+      <a href="index.html" class="page-nav-link glass page-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <div>
+          <span class="page-nav-label">Retour aux</span>
+          <span class="page-nav-title">Projets</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <a href="../index.html" class="logo footer-logo page-link">
+        <span class="logo-bracket">&lt;</span>Matis<span class="logo-dot">.</span><span class="logo-accent">SISR</span><span class="logo-bracket"> /&gt;</span>
+      </a>
+      <p class="footer-text">© 2026 — Da Silva Matis | Portfolio BTS SIO SISR</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
