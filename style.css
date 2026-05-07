@@ -1026,14 +1026,14 @@ footer {
 
 .page-transition::after {
   content: '';
-  width: 120px;
-  height: 120px;
-  background: url('triforce.png') no-repeat center;
+  width: 100px;
+  height: 100px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 87'%3E%3Cpath d='M50 0L25 43.3h50L50 0zM25 43.3L0 86.6h50L25 43.3zM75 43.3L50 86.6h50L75 43.3z' fill='%23FFD700'/%3E%3C/svg%3E") no-repeat center;
   background-size: contain;
   animation: triforce-pulse 1.5s ease-in-out infinite;
   opacity: 1;
   transition: opacity 0.3s ease;
-  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
 }
 
 @keyframes triforce-pulse {
