@@ -1026,13 +1026,14 @@ footer {
 
 .page-transition::after {
   content: '';
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   background: url('triforce.png') no-repeat center;
   background-size: contain;
   animation: triforce-pulse 1.5s ease-in-out infinite;
   opacity: 1;
   transition: opacity 0.3s ease;
+  mix-blend-mode: screen; /* Rend le fond noir invisible */
 }
 
 @keyframes triforce-pulse {
@@ -1162,6 +1163,8 @@ body.page-leaving .page-transition {
 .project-card-accent {
   width: 6px;
   background: var(--gradient-accent);
+  flex-shrink: 0;
+  align-self: stretch;
 }
 
 .project-card-body {
@@ -1638,12 +1641,19 @@ html.light .project-details {
 
 /* Featured Project Card on Main Page */
 .project-card-large.featured {
+  display: flex !important;
   border: 1.5px solid var(--border-hover);
   background: linear-gradient(135deg, var(--bg-card), rgba(96, 165, 250, 0.05));
 }
 
 .project-card-large.featured .project-card-accent {
-  width: 8px; /* Un peu plus large pour le mettre en avant */
+  width: 10px !important;
+  min-width: 10px !important;
+  height: auto !important;
+  align-self: stretch !important;
+  background: var(--gradient-accent) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 @media (max-width: 768px) {
