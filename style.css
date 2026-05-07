@@ -1026,14 +1026,14 @@ footer {
 
 .page-transition::after {
   content: '';
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   background: url('triforce.png') no-repeat center;
   background-size: contain;
   animation: triforce-pulse 1.5s ease-in-out infinite;
   opacity: 1;
   transition: opacity 0.3s ease;
-  mix-blend-mode: screen; /* Rend le fond noir invisible */
+  mix-blend-mode: screen;
 }
 
 @keyframes triforce-pulse {
