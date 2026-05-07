@@ -1019,6 +1019,29 @@ footer {
   transform: translateY(0);
   transition: transform 0.6s cubic-bezier(0.8, 0, 0.2, 1);
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-transition::after {
+  content: '';
+  width: 120px;
+  height: 120px;
+  background: url('triforce.png') no-repeat center;
+  background-size: contain;
+  animation: triforce-pulse 1.5s ease-in-out infinite;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes triforce-pulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px var(--accent-glow-strong)); }
+  50% { transform: scale(1.15); filter: drop-shadow(0 0 20px var(--accent)); }
+}
+
+body.page-loaded .page-transition::after {
+  opacity: 0;
 }
 
 body.page-loaded .page-transition {
@@ -1620,7 +1643,7 @@ html.light .project-details {
 }
 
 .project-card-large.featured .project-card-accent {
-  height: 6px;
+  width: 8px; /* Un peu plus large pour le mettre en avant */
 }
 
 @media (max-width: 768px) {
