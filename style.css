@@ -128,20 +128,51 @@ header.scrolled {
 /* Logo */
 .logo {
   text-decoration: none;
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1.45rem;
+  font-weight: 800;
   font-family: 'JetBrains Mono', monospace;
   color: var(--text-primary);
-  transition: var(--transition);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.01em;
+}
+
+.logo:hover {
+  transform: scale(1.03) translateY(-1px);
 }
 
 .logo-bracket {
-  color: var(--text-muted);
+  color: var(--accent);
+  opacity: 0.5;
   font-weight: 400;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+}
+
+.logo:hover .logo-bracket {
+  opacity: 1;
+  color: var(--accent-hover);
+}
+
+.logo:hover .logo-bracket:first-child {
+  transform: translateX(-4px);
+}
+
+.logo:hover .logo-bracket:last-child {
+  transform: translateX(4px);
 }
 
 .logo-dot {
   color: var(--accent);
+  margin: 0 1px;
+  display: inline-block;
+  animation: logo-blink 2s infinite;
+}
+
+@keyframes logo-blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.9); }
 }
 
 .logo-accent {
@@ -149,6 +180,13 @@ header.scrolled {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 900;
+  position: relative;
+  transition: var(--transition);
+}
+
+.logo:hover .logo-accent {
+  filter: drop-shadow(0 0 8px var(--accent-glow-strong));
 }
 
 /* Nav */
