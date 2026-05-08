@@ -4,11 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veilles Technologiques — Matis Da Silva | BTS SIO SISR</title>
-  <meta name="description" content="Veilles technologiques et juridiques réalisées par Matis Da Silva : cybersécurité, infrastructure et réglementation numérique.">
+  <meta name="description" content="Calendrier de veille technologique et juridique de Matis Da Silva : sources étatiques, cybersécurité et évolutions numériques.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Custom styles for the timeline */
+    .veille-timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+    .veille-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--accent-color);
+      opacity: 0.2;
+      transform: translateX(-50%);
+    }
+    .veille-month-item {
+      position: relative;
+      margin-bottom: 60px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .veille-month-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .veille-month-content {
+      width: 45%;
+    }
+    .veille-month-dot {
+      position: absolute;
+      left: 50%;
+      top: 20px;
+      width: 16px;
+      height: 16px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      box-shadow: 0 0 15px var(--accent-color);
+    }
+    .veille-month-label {
+      position: absolute;
+      left: 50%;
+      top: -10px;
+      transform: translateX(-50%);
+      background: var(--accent-color);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      z-index: 2;
+    }
+    @media (max-width: 768px) {
+      .veille-timeline::before { left: 30px; }
+      .veille-month-dot { left: 30px; }
+      .veille-month-label { left: 30px; transform: none; }
+      .veille-month-item, .veille-month-item:nth-child(even) { flex-direction: column; align-items: flex-start; padding-left: 60px; }
+      .veille-month-content { width: 100%; }
+    }
+  </style>
 </head>
 <body>
 
@@ -55,87 +121,141 @@
   <section class="page-hero">
     <div class="page-hero-content">
       <span class="page-hero-tag">07 — Veille Informationnelle</span>
-      <h1 class="page-hero-title">Veilles Technologiques</h1>
-      <p class="page-hero-subtitle">Suivi permanent des évolutions techniques, des menaces et de la réglementation</p>
+      <h1 class="page-hero-title">Calendrier de Veille</h1>
+      <p class="page-hero-subtitle">Suivi mensuel des sources institutionnelles et étatiques (2025-2026)</p>
     </div>
   </section>
 
-  <!-- Veilles Section -->
+  <!-- Timeline Section -->
   <section class="section">
-    <div class="section-header">
-      <span class="section-tag">Sources Officielles</span>
-      <h2 class="section-title">Veille Certifiée par l'État</h2>
-      <div class="section-line"></div>
-    </div>
-    
-    <div class="presentation-grid">
-      <!-- CERT-FR (ANSSI) -->
-      <div class="card glass reveal">
-        <div class="card-icon">🛡️</div>
-        <h3>CERT-FR (ANSSI)</h3>
-        <p>Le Centre d'Alerte et de Réaction aux Attaques Informatiques de l'ANSSI. Source officielle pour les avis de sécurité, alertes sur les vulnérabilités critiques et bulletins d'actualité.</p>
-        <div class="cert-footer" style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
-          <span class="tag">Sécurité & Alertes</span>
-          <a href="https://www.cert.ssi.gouv.fr/" target="_blank" class="cert-evidence-btn" title="Consulter le CERT-FR">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
-          </a>
+    <div class="veille-timeline">
+      
+      <!-- Mai 2026 -->
+      <div class="veille-month-item reveal">
+        <div class="veille-month-dot"></div>
+        <span class="veille-month-label">Mai 2026</span>
+        <div class="veille-month-content card glass">
+          <div class="card-icon">🚀</div>
+          <h3>France Num</h3>
+          <p>Portail gouvernemental pour la transformation numérique des entreprises. Veille sur les aides, les outils et les témoignages de digitalisation sécurisée.</p>
+          <div class="cert-footer" style="margin-top: 15px;">
+            <a href="https://www.francenum.gouv.fr/" target="_blank" class="btn-small glass">Consulter la source</a>
+          </div>
         </div>
       </div>
 
-      <!-- Cybermalveillance.gouv.fr -->
-      <div class="card glass reveal">
-        <div class="card-icon">🚨</div>
-        <h3>Cybermalveillance.gouv.fr</h3>
-        <p>Plateforme nationale de sensibilisation et d'assistance aux victimes de cybermalveillance. Indispensable pour la veille sur les tendances de phishing, ransomwares et fraudes au président.</p>
-        <div class="cert-footer" style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
-          <span class="tag">Tendances & Risques</span>
-          <a href="https://www.cybermalveillance.gouv.fr/" target="_blank" class="cert-evidence-btn" title="Consulter Cybermalveillance">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
-          </a>
+      <!-- Avril 2026 -->
+      <div class="veille-month-item reveal">
+        <div class="veille-month-dot"></div>
+        <span class="veille-month-label">Avril 2026</span>
+        <div class="veille-month-content card glass">
+          <div class="card-icon">👮</div>
+          <h3>Cyber-Gendarmerie</h3>
+          <p>Veille sur les modes opératoires criminels et les alertes de la Gendarmerie Nationale concernant la cybercriminalité en zone rurale et périurbaine.</p>
+          <div class="cert-footer" style="margin-top: 15px;">
+            <a href="https://www.gendarmerie.interieur.gouv.fr/missions/proteger/la-cyber-gendarmerie" target="_blank" class="btn-small glass">Consulter la source</a>
+          </div>
         </div>
       </div>
 
-      <!-- CNIL (Veille Juridique) -->
-      <div class="card glass reveal">
-        <div class="card-icon">⚖️</div>
-        <h3>CNIL</h3>
-        <p>Commission Nationale de l'Informatique et des Libertés. Source majeure pour la veille juridique concernant la protection des données personnelles (RGPD) et le droit du numérique.</p>
-        <div class="cert-footer" style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
-          <span class="tag">Veille Juridique</span>
-          <a href="https://www.cnil.fr/fr/actualites" target="_blank" class="cert-evidence-btn" title="Actualités CNIL">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
-          </a>
+      <!-- Mars 2026 -->
+      <div class="veille-month-item reveal">
+        <div class="veille-month-dot"></div>
+        <span class="veille-month-label">Mars 2026</span>
+        <div class="veille-month-content card glass">
+          <div class="card-icon">📺</div>
+          <h3>ARCOM</h3>
+          <p>Autorité de régulation de la communication audiovisuelle et numérique. Veille sur la protection des mineurs en ligne et la lutte contre la désinformation.</p>
+          <div class="cert-footer" style="margin-top: 15px;">
+            <a href="https://www.arcom.fr/nos-missions/numerique" target="_blank" class="btn-small glass">Consulter la source</a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="section-header" style="margin-top: 60px;">
-      <span class="section-tag">Outils & Méthodes</span>
-      <h2 class="section-title">Mes Outils de Veille</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="presentation-grid">
-      <!-- RSS & Agrégateurs -->
-      <div class="card glass reveal">
-        <div class="card-icon">📡</div>
-        <h3>Flux RSS & Feedly</h3>
-        <p>Centralisation des sources via des agrégateurs de flux RSS pour une consultation rapide et organisée des dernières actualités technologiques et de sécurité.</p>
+      <!-- Février 2026 -->
+      <div class="veille-month-item reveal">
+        <div class="veille-month-dot"></div>
+        <span class="veille-month-label">Février 2026</span>
+        <div class="veille-month-content card glass">
+          <div class="card-icon">⚖️</div>
+          <h3>Legifrance</h3>
+          <p>Service public de la diffusion du droit. Veille législative sur les nouveaux décrets concernant la sécurité des réseaux et le droit du numérique.</p>
+          <div class="cert-footer" style="margin-top: 15px;">
+            <a href="https://www.legifrance.gouv.fr/" target="_blank" class="btn-small glass">Consulter la source</a>
+          </div>
+        </div>
       </div>
 
-      <!-- Réseaux Sociaux Professionnels -->
-      <div class="card glass reveal">
-        <div class="card-icon">🔗</div>
-        <h3>LinkedIn & Twitter (X)</h3>
-        <p>Suivi d'experts en cybersécurité, de comptes officiels (ANSSI, Gendarmerie Cyber) et de revues spécialisées pour une veille réactive en temps réel.</p>
+      <!-- Janvier 2026 -->
+      <div class="veille-month-item reveal">
+        <div class="veille-month-dot"></div>
+        <span class="veille-month-label">Janvier 2026</span>
+        <div class="veille-month-content card glass">
+          <div class="card-icon">💻</div>
+          <h3>DINUM</h3>
+          <p>Direction interministérielle du numérique. Veille sur les standards d'interopérabilité, l'open source dans l'État et la stratégie numérique souveraine.</p>
+          <div class="cert-footer" style="margin-top: 15px;">
+            <a href="https://www.numerique.gouv.fr/actualites/" target="_blank" class="btn-small glass">Consulter la source</a>
+          </div>
+        </div>
       </div>
 
-      <!-- Newsletters Spécialisées -->
-      <div class="card glass reveal">
-        <div class="card-icon">📧</div>
-        <h3>Newsletters Techniques</h3>
-        <p>Abonnement aux bulletins hebdomadaires de L'Informaticien, ZDNet et aux rapports de menace périodiques des éditeurs de sécurité (Bitdefender, CrowdStrike).</p>
+      <!-- Décembre 2025 -->
+      <div class="veille-month-item reveal">
+        <div class="veille-month-dot"></div>
+        <span class="veille-month-label">Décembre 2025</span>
+        <div class="veille-month-content card glass">
+          <div class="card-icon">🚨</div>
+          <h3>CERT-FR</h3>
+          <p>Le centre d'alerte de l'ANSSI. Veille technique approfondie sur les vulnérabilités critiques (CVE) et les correctifs de sécurité officiels.</p>
+          <div class="cert-footer" style="margin-top: 15px;">
+            <a href="https://www.cert.ssi.gouv.fr/" target="_blank" class="btn-small glass">Consulter la source</a>
+          </div>
+        </div>
       </div>
+
+      <!-- Novembre 2025 -->
+      <div class="veille-month-item reveal">
+        <div class="veille-month-dot"></div>
+        <span class="veille-month-label">Novembre 2025</span>
+        <div class="veille-month-content card glass">
+          <div class="card-icon">🛡️</div>
+          <h3>CNIL</h3>
+          <p>Veille juridique sur la protection des données personnelles, les sanctions RGPD et les recommandations de sécurité des fichiers.</p>
+          <div class="cert-footer" style="margin-top: 15px;">
+            <a href="https://www.cnil.fr/fr/actualites" target="_blank" class="btn-small glass">Consulter la source</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Octobre 2025 -->
+      <div class="veille-month-item reveal">
+        <div class="veille-month-dot"></div>
+        <span class="veille-month-label">Octobre 2025</span>
+        <div class="veille-month-content card glass">
+          <div class="card-icon">⚠️</div>
+          <h3>Cybermalveillance</h3>
+          <p>Plateforme nationale d'assistance. Veille sur les campagnes de phishing saisonnières et les menaces visant les particuliers et PME.</p>
+          <div class="cert-footer" style="margin-top: 15px;">
+            <a href="https://www.cybermalveillance.gouv.fr/" target="_blank" class="btn-small glass">Consulter la source</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Septembre 2025 -->
+      <div class="veille-month-item reveal">
+        <div class="veille-month-dot"></div>
+        <span class="veille-month-label">Septembre 2025</span>
+        <div class="veille-month-content card glass">
+          <div class="card-icon">🏛️</div>
+          <h3>ANSSI</h3>
+          <p>L'autorité nationale en cybersécurité. Veille stratégique sur la menace étatique et les guides de durcissement des systèmes d'information.</p>
+          <div class="cert-footer" style="margin-top: 15px;">
+            <a href="https://www.ssi.gouv.fr/" target="_blank" class="btn-small glass">Consulter la source</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
