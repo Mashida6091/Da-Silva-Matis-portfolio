@@ -39,8 +39,11 @@
     .veille-month-item:nth-child(even) {
       flex-direction: row-reverse;
     }
-    .veille-month-content {
+    .veille-month-content-wrapper {
       width: 45%;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
     .veille-month-dot {
       position: absolute;
@@ -72,7 +75,7 @@
       .veille-month-dot { left: 30px; }
       .veille-month-label { left: 30px; transform: none; }
       .veille-month-item, .veille-month-item:nth-child(even) { flex-direction: column; align-items: flex-start; padding-left: 60px; }
-      .veille-month-content { width: 100%; }
+      .veille-month-content-wrapper { width: 100%; }
     }
   </style>
 </head>
@@ -134,126 +137,144 @@
       <div class="veille-month-item reveal">
         <div class="veille-month-dot"></div>
         <span class="veille-month-label">Mai 2026</span>
-        <div class="veille-month-content card glass">
-          <div class="card-icon">🚀</div>
-          <h3>Guide Cybersécurité TPE/PME</h3>
-          <p>Étude du guide pratique France Num en 13 questions pour sécuriser les petites entreprises : de la gestion des mots de passe à la sauvegarde des données.</p>
-          <div class="cert-footer" style="margin-top: 15px;">
-            <a href="https://www.francenum.gouv.fr/comprendre-le-numerique/le-guide-de-la-cybersecurite-pour-les-tpe-et-pme-en-13-questions" target="_blank" class="btn-small glass">Consulter le guide</a>
+        <a href="https://www.francenum.gouv.fr/" target="_blank" class="veille-month-content-wrapper">
+          <div class="card glass">
+            <div class="card-icon">🚀</div>
+            <h3>France Num</h3>
+            <p>Portail de la transformation numérique des entreprises. Veille sur les guides pratiques, les aides financières et le magazine du numérique.</p>
+            <div class="cert-footer" style="margin-top: 15px; color: var(--accent); font-weight: 600; font-size: 0.8rem; display: flex; align-items: center;">
+              Accéder au portail <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Avril 2026 -->
       <div class="veille-month-item reveal">
         <div class="veille-month-dot"></div>
         <span class="veille-month-label">Avril 2026</span>
-        <div class="veille-month-content card glass">
-          <div class="card-icon">👮</div>
-          <h3>Prévention Cybercriminalité</h3>
-          <p>Analyse des dossiers de prévention du Ministère de l'Intérieur sur les modes opératoires actuels : ransomwares, piratage de comptes et escroqueries au virement.</p>
-          <div class="cert-footer" style="margin-top: 15px;">
-            <a href="https://www.masecurite.interieur.gouv.fr/fr/conseils-et-demarches-numeriques/cybercriminalite" target="_blank" class="btn-small glass">Dossier Prévention</a>
+        <a href="https://www.masecurite.interieur.gouv.fr/" target="_blank" class="veille-month-content-wrapper">
+          <div class="card glass">
+            <div class="card-icon">👮</div>
+            <h3>Ma Sécurité</h3>
+            <p>Portail du Ministère de l'Intérieur. Veille sur les conseils de sécurité numérique, les signalements de fraude et la lutte contre la cybercriminalité.</p>
+            <div class="cert-footer" style="margin-top: 15px; color: var(--accent); font-weight: 600; font-size: 0.8rem; display: flex; align-items: center;">
+              Accéder au portail <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Mars 2026 -->
       <div class="veille-month-item reveal">
         <div class="veille-month-dot"></div>
         <span class="veille-month-label">Mars 2026</span>
-        <div class="veille-month-content card glass">
-          <div class="card-icon">📺</div>
-          <h3>Régulation DSA (Arcom)</h3>
-          <p>Suivi de la mise en œuvre du Digital Services Act (DSA) par l'Arcom pour la régulation des contenus illicites et la transparence des plateformes numériques.</p>
-          <div class="cert-footer" style="margin-top: 15px;">
-            <a href="https://www.arcom.fr/nos-missions/numerique/la-regulation-des-plateformes-numeriques-le-dsa" target="_blank" class="btn-small glass">Rapport DSA</a>
+        <a href="https://www.arcom.fr/" target="_blank" class="veille-month-content-wrapper">
+          <div class="card glass">
+            <div class="card-icon">📺</div>
+            <h3>Arcom</h3>
+            <p>Autorité de régulation de la communication audiovisuelle et numérique. Veille sur la régulation des plateformes et le marché numérique européen.</p>
+            <div class="cert-footer" style="margin-top: 15px; color: var(--accent); font-weight: 600; font-size: 0.8rem; display: flex; align-items: center;">
+              Accéder au portail <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Février 2026 -->
       <div class="veille-month-item reveal">
         <div class="veille-month-dot"></div>
         <span class="veille-month-label">Février 2026</span>
-        <div class="veille-month-content card glass">
-          <div class="card-icon">⚖️</div>
-          <h3>Droit des Communications</h3>
-          <p>Étude du Code des postes et des communications électroniques sur Légifrance : cadre légal des infrastructures et de la souveraineté numérique.</p>
-          <div class="cert-footer" style="margin-top: 15px;">
-            <a href="https://www.legifrance.gouv.fr/codes/id/LEGITEXT000006070987/" target="_blank" class="btn-small glass">Consulter le Code</a>
+        <a href="https://www.legifrance.gouv.fr/" target="_blank" class="veille-month-content-wrapper">
+          <div class="card glass">
+            <div class="card-icon">⚖️</div>
+            <h3>Légifrance</h3>
+            <p>Service public de la diffusion du droit. Veille législative sur les codes, décrets et lois encadrant les technologies de l'information.</p>
+            <div class="cert-footer" style="margin-top: 15px; color: var(--accent); font-weight: 600; font-size: 0.8rem; display: flex; align-items: center;">
+              Accéder au portail <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Janvier 2026 -->
       <div class="veille-month-item reveal">
         <div class="veille-month-dot"></div>
         <span class="veille-month-label">Janvier 2026</span>
-        <div class="veille-month-content card glass">
-          <div class="card-icon">💻</div>
-          <h3>Logiciels Libres (DINUM)</h3>
-          <p>Veille sur l'utilisation des logiciels libres et du code source ouvert au sein de l'administration publique (plateforme code.gouv.fr).</p>
-          <div class="cert-footer" style="margin-top: 15px;">
-            <a href="https://code.gouv.fr/fr/" target="_blank" class="btn-small glass">Plateforme Code.gouv</a>
+        <a href="https://www.numerique.gouv.fr/" target="_blank" class="veille-month-content-wrapper">
+          <div class="card glass">
+            <div class="card-icon">💻</div>
+            <h3>DINUM</h3>
+            <p>Direction Interministérielle du Numérique. Veille sur l'innovation dans l'État, les services numériques publics et le cloud souverain.</p>
+            <div class="cert-footer" style="margin-top: 15px; color: var(--accent); font-weight: 600; font-size: 0.8rem; display: flex; align-items: center;">
+              Accéder au portail <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Décembre 2025 -->
       <div class="veille-month-item reveal">
         <div class="veille-month-dot"></div>
         <span class="veille-month-label">Décembre 2025</span>
-        <div class="veille-month-content card glass">
-          <div class="card-icon">🚨</div>
-          <h3>Alertes Critiques CERT-FR</h3>
-          <p>Consultation des derniers avis et bulletins d'alerte du CERT-FR sur les vulnérabilités logicielles et matérielles majeures en fin d'année.</p>
-          <div class="cert-footer" style="margin-top: 15px;">
-            <a href="https://www.cert.ssi.gouv.fr/avis/" target="_blank" class="btn-small glass">Derniers avis</a>
+        <a href="https://www.cert.ssi.gouv.fr/" target="_blank" class="veille-month-content-wrapper">
+          <div class="card glass">
+            <div class="card-icon">🚨</div>
+            <h3>CERT-FR</h3>
+            <p>Centre d'alerte et de réaction aux attaques informatiques. Veille technique sur les vulnérabilités critiques et les correctifs de sécurité.</p>
+            <div class="cert-footer" style="margin-top: 15px; color: var(--accent); font-weight: 600; font-size: 0.8rem; display: flex; align-items: center;">
+              Accéder au portail <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Novembre 2025 -->
       <div class="veille-month-item reveal">
         <div class="veille-month-dot"></div>
         <span class="veille-month-label">Novembre 2025</span>
-        <div class="veille-month-content card glass">
-          <div class="card-icon">🛡️</div>
-          <h3>Sécurité des Données (CNIL)</h3>
-          <p>Analyse de la nouvelle édition du guide CNIL sur la sécurité des données personnelles : mesures techniques et organisationnelles recommandées.</p>
-          <div class="cert-footer" style="margin-top: 15px;">
-            <a href="https://www.cnil.fr/fr/securite-des-donnees-personnelles-la-cnil-publie-une-nouvelle-edition-de-son-guide" target="_blank" class="btn-small glass">Guide de sécurité</a>
+        <a href="https://www.cnil.fr/" target="_blank" class="veille-month-content-wrapper">
+          <div class="card glass">
+            <div class="card-icon">🛡️</div>
+            <h3>CNIL</h3>
+            <p>Commission Nationale de l'Informatique et des Libertés. Veille sur la protection des données, le RGPD et l'éthique de l'IA.</p>
+            <div class="cert-footer" style="margin-top: 15px; color: var(--accent); font-weight: 600; font-size: 0.8rem; display: flex; align-items: center;">
+              Accéder au portail <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Octobre 2025 -->
       <div class="veille-month-item reveal">
         <div class="veille-month-dot"></div>
         <span class="veille-month-label">Octobre 2025</span>
-        <div class="veille-month-content card glass">
-          <div class="card-icon">⚠️</div>
-          <h3>État de la Menace 2024/2025</h3>
-          <p>Étude du rapport annuel de Cybermalveillance.gouv.fr sur les tendances d'attaques : phishing, piratage de compte et rançongiciels.</p>
-          <div class="cert-footer" style="margin-top: 15px;">
-            <a href="https://www.cybermalveillance.gouv.fr/nos-articles/etat-de-la-menace-2024-et-tendances-2025" target="_blank" class="btn-small glass">Rapport Menaces</a>
+        <a href="https://www.cybermalveillance.gouv.fr/" target="_blank" class="veille-month-content-wrapper">
+          <div class="card glass">
+            <div class="card-icon">⚠️</div>
+            <h3>Cybermalveillance</h3>
+            <p>Plateforme d'assistance aux victimes de cybermalveillance. Veille sur les menaces grand public et professionnelles.</p>
+            <div class="cert-footer" style="margin-top: 15px; color: var(--accent); font-weight: 600; font-size: 0.8rem; display: flex; align-items: center;">
+              Accéder au portail <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Septembre 2025 -->
       <div class="veille-month-item reveal">
         <div class="veille-month-dot"></div>
         <span class="veille-month-label">Septembre 2025</span>
-        <div class="veille-month-content card glass">
-          <div class="card-icon">🏛️</div>
-          <h3>Panorama Cyber ANSSI</h3>
-          <p>Veille stratégique basée sur le Panorama de la cybermenace de l'ANSSI : analyse des intentions des attaquants et des secteurs ciblés.</p>
-          <div class="cert-footer" style="margin-top: 15px;">
-            <a href="https://www.cyber.gouv.fr/publications/panorama-de-la-cybermenace-2024" target="_blank" class="btn-small glass">Consulter le Panorama</a>
+        <a href="https://www.cyber.gouv.fr/" target="_blank" class="veille-month-content-wrapper">
+          <div class="card glass">
+            <div class="card-icon">🏛️</div>
+            <h3>ANSSI (Cyber.gouv)</h3>
+            <p>Agence nationale de la sécurité des systèmes d'information. Veille stratégique, rapports de menace et guides de bonnes pratiques.</p>
+            <div class="cert-footer" style="margin-top: 15px; color: var(--accent); font-weight: 600; font-size: 0.8rem; display: flex; align-items: center;">
+              Accéder au portail <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
     </div>
