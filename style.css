@@ -1020,14 +1020,15 @@ footer {
   transition: transform 0.6s cubic-bezier(0.8, 0, 0.2, 1);
   pointer-events: none;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 40px;
 }
 
 .page-transition::after {
   content: '';
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 87'%3E%3Cpath d='M50 0L25 43.3h50L50 0zM25 43.3L0 86.6h50L25 43.3zM75 43.3L50 86.6h50L75 43.3z' fill='%23FFD700'/%3E%3C/svg%3E") no-repeat center;
   background-size: contain;
   animation: triforce-pulse 1.5s ease-in-out infinite;
