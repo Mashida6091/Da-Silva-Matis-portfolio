@@ -1161,7 +1161,7 @@ body.page-leaving .page-transition {
 }
 
 .project-card-accent {
-  width: 6px;
+  width: 4px;
   background: var(--gradient-accent);
   flex-shrink: 0;
   align-self: stretch;
@@ -1647,8 +1647,8 @@ html.light .project-details {
 }
 
 .project-card-large.featured .project-card-accent {
-  width: 10px !important;
-  min-width: 10px !important;
+  width: 4px !important;
+  min-width: 4px !important;
   height: auto !important;
   align-self: stretch !important;
   background: var(--gradient-accent) !important;
