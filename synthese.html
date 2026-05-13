@@ -3,181 +3,291 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tableau de Synthèse — Matis Da Silva | BTS SIO SISR</title>
+  <title>Synthèse — Matis Da Silva | BTS SIO SISR</title>
   <meta name="description" content="Tableau de synthèse des réalisations professionnelles de Matis Da Silva pour le BTS SIO SISR.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Specific styles for the summary table */
-    .synthese-container {
-      margin-top: 2rem;
-      overflow-x: auto;
-      background: white;
-      color: black;
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    /* ═══════════════════════════════════════════════════
+       MODERN SYNTHESIS INTERFACE
+       ═══════════════════════════════════════════════════ */
+    
+    .synthesis-wrapper {
+      margin-top: 1rem;
     }
 
-    .synthese-header {
+    /* Tabs Navigation */
+    .tabs-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 14px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-pill);
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: inherit;
+    }
+
+    .tab-btn:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      color: var(--text-primary);
+      transform: translateY(-2px);
+    }
+
+    .tab-btn.active {
+      background: var(--gradient-accent);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 8px 25px var(--accent-glow-strong);
+    }
+
+    /* Cards Grid */
+    .synthesis-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr;
-      border: 2px solid black;
-      margin-bottom: 0;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
     }
 
-    .header-box {
-      border: 1px solid black;
-      padding: 8px 12px;
-      font-size: 0.9rem;
+    .synthesis-card {
+      display: none; /* Controlled by JS */
+      flex-direction: column;
+      padding: 32px;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      animation: cardAppear 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
 
-    .header-box strong {
+    @keyframes cardAppear {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .synthesis-card.active {
+      display: flex;
+    }
+
+    .card-category {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 6px 16px;
+      background: var(--accent-glow);
+      color: var(--accent);
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
+      border-bottom-left-radius: var(--radius);
+      letter-spacing: 0.05em;
     }
 
-    .table-synthese {
+    .card-meta {
+      margin-bottom: 16px;
+    }
+
+    .card-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .synthesis-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    .card-productions {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      line-height: 1.6;
+      font-style: italic;
+      padding-left: 14px;
+      border-left: 2px solid var(--accent);
+    }
+
+    /* Competencies Badges */
+    .skills-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .skills-badges {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .skill-badge {
+      font-size: 0.65rem;
+      padding: 8px 4px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
+      color: var(--text-muted);
+      text-align: center;
+      transition: all var(--transition);
+      font-weight: 700;
+    }
+
+    .skill-badge.active {
+      background: var(--accent-glow);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    /* Official Table View Control */
+    .official-view-actions {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+
+    /* Modal for Official Table */
+    .official-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 14, 26, 0.95);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      backdrop-filter: blur(15px);
+    }
+
+    .modal-content {
+      background: white;
+      color: black;
+      width: 100%;
+      max-width: 1200px;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: var(--radius);
+      padding: 48px;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: #f1f5f9;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #0f172a;
+      transition: var(--transition);
+    }
+
+    .close-modal:hover {
+      background: #e2e8f0;
+      transform: rotate(90deg);
+    }
+
+    /* Official Table Styles (Simplified for PDF) */
+    .official-table-container {
+      font-family: Arial, sans-serif;
+    }
+    
+    .official-header {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      border: 1.5px solid black;
+      margin-bottom: 10px;
+    }
+
+    .header-info {
+      border: 0.5px solid black;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+    }
+
+    .table-pdf {
       width: 100%;
       border-collapse: collapse;
-      border: 2px solid black;
-      font-family: Arial, sans-serif;
-      font-size: 0.8rem;
-      background-color: white;
-      color: black;
-    }
-
-    .table-synthese th, 
-    .table-synthese td {
-      border: 1px solid black;
-      padding: 5px;
-      vertical-align: middle;
-    }
-
-    .table-synthese thead th {
-      background-color: #f8f9fa;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    /* Diagonal cell */
-    .diagonal-cell {
-      position: relative;
-      width: 250px;
-      height: 250px;
-      background: linear-gradient(to top right, transparent calc(50% - 1px), black, transparent calc(50% + 1px));
-      padding: 0 !important;
-    }
-
-    .diagonal-cell .top-text {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      text-align: right;
-      width: 150px;
-    }
-
-    .diagonal-cell .bottom-text {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      text-align: left;
-      width: 150px;
-    }
-
-    /* Vertical text for competencies */
-    .vertical-text {
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      text-align: left;
-      height: 350px;
-      white-space: nowrap;
-      padding: 10px 5px;
-      font-size: 0.75rem;
-      line-height: 1.2;
-    }
-
-    .competence-group {
-      width: 40px;
-    }
-
-    .sub-competence-header {
-      font-size: 0.65rem;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      height: 250px;
-      text-align: left;
-      font-weight: normal;
-      padding: 5px 2px;
-    }
-
-    .section-title-row {
-      background-color: #f2f2f2 !important;
-      text-align: center;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-    }
-
-    .center-x {
-      text-align: center;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-
-    .date-cell {
-      width: 80px;
-      text-align: center;
-      font-size: 0.75rem;
-    }
-
-    .realization-cell {
-      max-width: 300px;
-      text-align: left;
-    }
-
-    .realization-cell strong {
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .realization-cell span {
-      font-style: italic;
+      border: 1.5px solid black;
       font-size: 0.7rem;
-      color: #333;
+    }
+
+    .table-pdf th, .table-pdf td {
+      border: 1px solid black;
+      padding: 6px;
+      text-align: left;
+    }
+
+    .table-pdf thead th {
+      background: #f8fafc;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .rotated-th {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      height: 180px;
+      text-align: left;
+      font-size: 0.6rem;
+      white-space: nowrap;
+    }
+
+    .section-row {
+      background: #f1f5f9 !important;
+      font-weight: bold;
+      text-align: center !important;
+      text-transform: uppercase;
+    }
+
+    .check-cell {
+      text-align: center !important;
+      font-weight: bold;
+      font-size: 1rem;
     }
 
     /* Print styling */
     @media print {
-      body * {
-        visibility: hidden;
-      }
-      .synthese-container, .synthese-container * {
-        visibility: visible;
-      }
-      .synthese-container {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        box-shadow: none;
-      }
-      header, footer, .page-hero, canvas, .page-transition {
-        display: none !important;
-      }
+      body * { visibility: hidden; }
+      .official-modal, .official-modal * { visibility: visible; }
+      .official-modal { position: absolute; left: 0; top: 0; background: white; padding: 0; }
+      .modal-content { box-shadow: none; padding: 0; max-height: none; width: 100%; }
+      .close-modal, .official-view-actions, header, footer, .page-hero { display: none !important; }
     }
-
-    /* Adjusting for theme */
-    html.light .synthese-container {
-      background: white;
-    }
-    
-    /* Ensure table text remains black even in dark mode for PDF-like look, or adapt if preferred.
-       BTS SIO docs are usually white with black text. I'll stick to that for authenticity. */
   </style>
 </head>
 <body>
@@ -226,261 +336,198 @@
   <!-- Page Hero -->
   <section class="page-hero">
     <div class="page-hero-content">
-      <span class="page-hero-tag">07 — Récapitulatif</span>
-      <h1 class="page-hero-title">Tableau de Synthèse</h1>
-      <p class="page-hero-subtitle">Récapitulatif des compétences mises en œuvre lors des réalisations professionnelles</p>
-      <div style="margin-top: 20px;">
-        <button onclick="window.print()" class="btn btn-primary">
-          <span>Exporter en PDF / Imprimer</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      <span class="page-hero-tag">07 — Tableau de Synthèse</span>
+      <h1 class="page-hero-title">Réalisations Professionnelles</h1>
+      <p class="page-hero-subtitle">Visualisation dynamique des compétences mobilisées durant mon cursus BTS SIO</p>
+    </div>
+  </section>
+
+  <!-- Interactive Content -->
+  <section class="section" style="padding-top: 0;">
+    <div class="synthesis-wrapper">
+      
+      <!-- Tabs Selector -->
+      <div class="tabs-container reveal">
+        <button class="tab-btn active" data-tab="formation">🎓 En Formation</button>
+        <button class="tab-btn" data-tab="stage1">💼 Stage 1ère année</button>
+        <button class="tab-btn" data-tab="stage2">🚀 Stage 2ème année</button>
+      </div>
+
+      <!-- Realizations Grid -->
+      <div class="synthesis-grid">
+        
+        <!-- --- CATEGORY: FORMATION --- -->
+        <div class="synthesis-card glass active" data-category="formation">
+          <div class="card-meta"><span class="card-date">2025 - 2026</span></div>
+          <h3>Portfolio BTS SIO SISR</h3>
+          <p class="card-productions">Site web, architecture HTML/CSS/JS, CV interactif, gestion des preuves.</p>
+          <div class="skills-title">Blocs mobilisés :</div>
+          <div class="skills-badges">
+            <div class="skill-badge">C1</div><div class="skill-badge">C2</div><div class="skill-badge">C3</div>
+            <div class="skill-badge active">C4 : PROJET</div><div class="skill-badge">C5</div><div class="skill-badge active">C6 : VEILLE</div>
+          </div>
+        </div>
+
+        <div class="synthesis-card glass active" data-category="formation">
+          <div class="card-meta"><span class="card-date">2025 - 2026</span></div>
+          <h3>Veille Cybersécurité</h3>
+          <p class="card-productions">Outils de curation, agrégateurs de flux RSS, rapports de veille technologique.</p>
+          <div class="skills-title">Blocs mobilisés :</div>
+          <div class="skills-badges">
+            <div class="skill-badge">C1</div><div class="skill-badge">C2</div><div class="skill-badge active">C3 : WEB</div>
+            <div class="skill-badge">C4</div><div class="skill-badge">C5</div><div class="skill-badge active">C6 : VEILLE</div>
+          </div>
+        </div>
+
+        <div class="synthesis-card glass active" data-category="formation">
+          <div class="card-meta"><span class="card-date">Octobre 2025</span></div>
+          <h3>GSB Mission 1 — Segmentation</h3>
+          <p class="card-productions">Switch Cisco, VLANs, plan de câblage, procédure de sécurisation.</p>
+          <div class="skills-title">Blocs mobilisés :</div>
+          <div class="skills-badges">
+            <div class="skill-badge active">C1 : PATRIMOINE</div><div class="skill-badge">C2</div><div class="skill-badge">C3</div>
+            <div class="skill-badge active">C4 : PROJET</div><div class="skill-badge active">C5 : SERVICE</div><div class="skill-badge">C6</div>
+          </div>
+        </div>
+
+        <div class="synthesis-card glass active" data-category="formation">
+          <div class="card-meta"><span class="card-date">Novembre 2025</span></div>
+          <h3>GSB Mission 2 — Interconnexion</h3>
+          <p class="card-productions">Pare-feu Stormshield, routage inter-VLAN, NAT, tests d'intrusion.</p>
+          <div class="skills-title">Blocs mobilisés :</div>
+          <div class="skills-badges">
+            <div class="skill-badge active">C1 : PATRIMOINE</div><div class="skill-badge">C2</div><div class="skill-badge">C3</div>
+            <div class="skill-badge active">C4 : PROJET</div><div class="skill-badge active">C5 : SERVICE</div><div class="skill-badge">C6</div>
+          </div>
+        </div>
+
+        <div class="synthesis-card glass active" data-category="formation">
+          <div class="card-meta"><span class="card-date">Février 2026</span></div>
+          <h3>Déploiement DHCP Server</h3>
+          <p class="card-productions">Windows Server 2022, scopes DHCP, réservations, tests clients.</p>
+          <div class="skills-title">Blocs mobilisés :</div>
+          <div class="skills-badges">
+            <div class="skill-badge active">C1 : PATRIMOINE</div><div class="skill-badge">C2</div><div class="skill-badge">C3</div>
+            <div class="skill-badge active">C4 : PROJET</div><div class="skill-badge active">C5 : SERVICE</div><div class="skill-badge">C6</div>
+          </div>
+        </div>
+
+        <!-- --- CATEGORY: STAGE 1 --- -->
+        <div class="synthesis-card glass" data-category="stage1">
+          <div class="card-meta"><span class="card-date">Mai - Juillet 2025</span></div>
+          <h3>Support & Maintenance Parc</h3>
+          <p class="card-productions">Inventaire GLPI, maintenance hardware, déploiement postes de travail.</p>
+          <div class="skills-title">Blocs mobilisés :</div>
+          <div class="skills-badges">
+            <div class="skill-badge active">C1 : PATRIMOINE</div><div class="skill-badge active">C2 : SUPPORT</div><div class="skill-badge">C3</div>
+            <div class="skill-badge active">C4 : PROJET</div><div class="skill-badge active">C5 : SERVICE</div><div class="skill-badge">C6</div>
+          </div>
+        </div>
+
+        <div class="synthesis-card glass" data-category="stage1">
+          <div class="card-meta"><span class="card-date">Mai - Juillet 2025</span></div>
+          <h3>Gestion de la Cybersécurité</h3>
+          <p class="card-productions">Analyse de logs, sensibilisation utilisateurs, rapports d'incidents.</p>
+          <div class="skills-title">Blocs mobilisés :</div>
+          <div class="skills-badges">
+            <div class="skill-badge active">C1 : PATRIMOINE</div><div class="skill-badge active">C2 : SUPPORT</div><div class="skill-badge">C3</div>
+            <div class="skill-badge active">C4 : PROJET</div><div class="skill-badge active">C5 : SERVICE</div><div class="skill-badge">C6</div>
+          </div>
+        </div>
+
+        <!-- --- CATEGORY: STAGE 2 --- -->
+        <div class="synthesis-card glass" data-category="stage2">
+          <div class="card-meta"><span class="card-date">Janvier - Février 2026</span></div>
+          <h3>Admin Active Directory</h3>
+          <p class="card-productions">GPOs, gestion des unités d'organisation, scripts PowerShell.</p>
+          <div class="skills-title">Blocs mobilisés :</div>
+          <div class="skills-badges">
+            <div class="skill-badge active">C1 : PATRIMOINE</div><div class="skill-badge active">C2 : SUPPORT</div><div class="skill-badge">C3</div>
+            <div class="skill-badge active">C4 : PROJET</div><div class="skill-badge active">C5 : SERVICE</div><div class="skill-badge">C6</div>
+          </div>
+        </div>
+
+        <div class="synthesis-card glass" data-category="stage2">
+          <div class="card-meta"><span class="card-date">Janvier - Février 2026</span></div>
+          <h3>Tutorat & Formation</h3>
+          <p class="card-productions">Accompagnement de nouveaux arrivants, documentation interne.</p>
+          <div class="skills-title">Blocs mobilisés :</div>
+          <div class="skills-badges">
+            <div class="skill-badge">C1</div><div class="skill-badge">C2</div><div class="skill-badge">C3</div>
+            <div class="skill-badge active">C4 : PROJET</div><div class="skill-badge">C5</div><div class="skill-badge active">C6 : PRO</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Action Footer -->
+      <div class="official-view-actions">
+        <p style="margin-bottom: 20px; color: var(--text-secondary);">Besoin du format réglementaire ?</p>
+        <button id="showOfficial" class="btn btn-primary">
+          <span>Ouvrir le tableau de synthèse officiel</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </button>
       </div>
+
     </div>
   </section>
 
-  <!-- Table Section -->
-  <section class="section" style="padding-top: 0;">
-    <div class="synthese-container reveal">
+  <!-- Official Modal -->
+  <div class="official-modal" id="officialModal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModal">&times;</button>
       
-      <!-- Header Info -->
-      <div class="synthese-header">
-        <div class="header-box">
-          <strong>NOM et prénom :</strong> Da Silva Matis
-        </div>
-        <div class="header-box">
-          <strong>N° candidat :</strong> 2248023775
-        </div>
-        <div class="header-box">
-          <strong>Centre de formation :</strong> Lycée Benjamin Franklin
-        </div>
-        <div class="header-box">
-          <strong>Option :</strong> SISR
-        </div>
-        <div class="header-box" style="grid-column: span 2;">
-          <strong>Adresse URL du portfolio :</strong> https://mashida6091.github.io/Da-Silva-Matis-portfolio/
-        </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <h2 style="font-weight: 800; color: #0f172a;">Tableau de Synthèse Officiel</h2>
+        <button onclick="window.print()" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">
+          <span>Imprimer pour examen</span>
+        </button>
       </div>
 
-      <!-- Main Table -->
-      <table class="table-synthese">
-        <thead>
-          <tr>
-            <th rowspan="3" class="diagonal-cell">
-              <div class="top-text">Compétences mises en œuvre</div>
-              <div class="bottom-text">Réalisations professionnelles (intitulé et liste des documents et productions associés)</div>
-            </th>
-            <th rowspan="3" class="vertical-text" style="width: 30px; height: auto;">Période (sous la forme du JJ/MM/AA au JJ/MM/AA)</th>
-            <th colspan="6">Gérer le patrimoine informatique</th>
-            <th colspan="3">Répondre aux incidents et aux demandes d'assistance et d'évolution</th>
-            <th colspan="3">Développer la présence en ligne de l'organisation</th>
-            <th colspan="3">Travailler en mode projet</th>
-            <th colspan="3">Mettre à disposition des utilisateurs un service informatique</th>
-            <th colspan="4">Organiser son développement professionnel</th>
-          </tr>
-          <tr>
-            <!-- Subheaders rotated -->
-            <th class="sub-competence-header">Recenser et identifier les ressources numériques</th>
-            <th class="sub-competence-header">Exploiter des référentiels, normes et standards adoptés par le prestataire</th>
-            <th class="sub-competence-header">Mettre en place et vérifier les niveaux d'habilitation associés à un service</th>
-            <th class="sub-competence-header">Vérifier les conditions de la continuité d'un service informatique</th>
-            <th class="sub-competence-header">Gérer des sauvegardes</th>
-            <th class="sub-competence-header">Vérifier le respect des règles d'utilisation des ressources numériques</th>
-            
-            <th class="sub-competence-header">Collecter, suivre et orienter les demandes</th>
-            <th class="sub-competence-header">Traiter des demandes concernant les services réseaux et système, applicatifs</th>
-            <th class="sub-competence-header">Traiter des demandes concernant les applications</th>
-            
-            <th class="sub-competence-header">Participer à la valorisation de l'image de l'organisation sur les médias numériques</th>
-            <th class="sub-competence-header">Référencer un service en ligne de l'organisation et mesurer sa visibilité</th>
-            <th class="sub-competence-header">Participer à l'évolution d'un site Web exploitant les données de l'organisation</th>
-            
-            <th class="sub-competence-header">Analyser les objectifs et les modalités d'organisation d'un projet</th>
-            <th class="sub-competence-header">Planifier les activités</th>
-            <th class="sub-competence-header">Évaluer les indicateurs de suivi d'un projet et analyser les écarts</th>
-            
-            <th class="sub-competence-header">Réaliser les tests d'intégration et d'acceptation d'un service</th>
-            <th class="sub-competence-header">Déployer un service</th>
-            <th class="sub-competence-header">Accompagner les utilisateurs dans la mise en œuvre d'un service</th>
-            
-            <th class="sub-competence-header">Mettre en place son environnement d'apprentissage personnel</th>
-            <th class="sub-competence-header">Mettre en œuvre des outils et stratégies de veille technologique</th>
-            <th class="sub-competence-header">Gérer son identité professionnelle</th>
-            <th class="sub-competence-header">Développer son projet professionnel</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Section 1 -->
-          <tr class="section-title-row">
-            <td colspan="24">Réalisations en cours de formation</td>
-          </tr>
-          <tr>
-            <td class="realization-cell">
-              <strong>Conception, structuration et mise en ligne du portfolio BTS SIO</strong>
-              <span>Documents/productions : site GitHub Pages, page d'accueil, pages projets/stages/certifications, CV en ligne, liens vers rapports et preuves</span>
-            </td>
-            <td class="date-cell">01/09/25<br>au<br>20/04/26</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td> <!-- C1 -->
-            <td></td><td></td><td></td> <!-- C2 -->
-            <td></td><td></td><td></td> <!-- C3 -->
-            <td></td><td class="center-x">X</td><td></td> <!-- C4 -->
-            <td></td><td></td><td></td> <!-- C5 -->
-            <td class="center-x">X</td><td class="center-x">X</td><td class="center-x">X</td><td class="center-x">X</td> <!-- C6 -->
-          </tr>
-          <tr>
-            <td class="realization-cell">
-              <strong>Veille technologique cybersécurité</strong>
-            </td>
-            <td class="date-cell">25/09/25<br>au<br>13/03/26</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td> <!-- C1 -->
-            <td></td><td></td><td></td> <!-- C2 -->
-            <td></td><td class="center-x">X</td><td></td> <!-- C3 -->
-            <td></td><td></td><td></td> <!-- C4 -->
-            <td></td><td></td><td></td> <!-- C5 -->
-            <td></td><td class="center-x">X</td><td></td><td class="center-x">X</td> <!-- C6 -->
-          </tr>
-          <tr>
-            <td class="realization-cell">
-              <strong>GSB Mission 1 - Segmentation réseau et sécurisation d'un switch Cisco</strong>
-              <span>Documents/productions : rapport HTML/PDF, schéma VLAN, fiche de procédure MATLAB VLAN SSII, fiche de recette, plan de câblage</span>
-            </td>
-            <td class="date-cell">01/10/25<br>au<br>31/10/25</td>
-            <td></td><td class="center-x">X</td><td></td><td></td><td></td><td></td> <!-- C1 -->
-            <td></td><td></td><td></td> <!-- C2 -->
-            <td></td><td></td><td></td> <!-- C3 -->
-            <td class="center-x">X</td><td></td><td></td> <!-- C4 -->
-            <td class="center-x">X</td><td class="center-x">X</td><td></td> <!-- C5 -->
-            <td></td><td></td><td></td><td></td> <!-- C6 -->
-          </tr>
-          <tr>
-            <td class="realization-cell">
-              <strong>GSB Mission 2 - Interconnexion VLAN et accès Internet via pare-feu Stormshield</strong>
-              <span>Documents/productions : rapport HTML/PDF, schéma réseau, plan d'adressage, captures de tests NAT/routage/connectivité</span>
-            </td>
-            <td class="date-cell">01/11/25<br>au<br>30/11/25</td>
-            <td></td><td class="center-x">X</td><td></td><td></td><td></td><td></td> <!-- C1 -->
-            <td></td><td></td><td></td> <!-- C2 -->
-            <td></td><td></td><td></td> <!-- C3 -->
-            <td class="center-x">X</td><td></td><td></td> <!-- C4 -->
-            <td class="center-x">X</td><td class="center-x">X</td><td></td> <!-- C5 -->
-            <td></td><td></td><td></td><td></td> <!-- C6 -->
-          </tr>
-          <tr>
-            <td class="realization-cell">
-              <strong>Déploiement d'un service DHCP sous Windows Server avec validation client</strong>
-              <span>Documents/productions : rapport HTML, PDF DHCPavecWAMP, captures de configuration de l'étendue et tests côté client</span>
-            </td>
-            <td class="date-cell">01/02/26<br>au<br>15/02/26</td>
-            <td></td><td class="center-x">X</td><td></td><td></td><td></td><td></td> <!-- C1 -->
-            <td></td><td></td><td></td> <!-- C2 -->
-            <td></td><td></td><td></td> <!-- C3 -->
-            <td class="center-x">X</td><td></td><td></td> <!-- C4 -->
-            <td class="center-x">X</td><td class="center-x">X</td><td></td> <!-- C5 -->
-            <td></td><td></td><td></td><td></td> <!-- C6 -->
-          </tr>
+      <div class="official-table-container">
+        <div class="official-header">
+          <div class="header-info"><strong>NOM et prénom :</strong> Da Silva Matis</div>
+          <div class="header-info"><strong>N° candidat :</strong> 2248023775</div>
+          <div class="header-info"><strong>Centre :</strong> Lycée Benjamin Franklin</div>
+          <div class="header-info"><strong>Option :</strong> SISR</div>
+          <div class="header-info" style="grid-column: span 2;"><strong>URL :</strong> https://mashida6091.github.io/Da-Silva-Matis-portfolio/</div>
+        </div>
 
-          <!-- Section 2 -->
-          <tr class="section-title-row">
-            <td colspan="24">Réalisations en milieu professionnel en cours de première année</td>
-          </tr>
-          <tr>
-            <td class="realization-cell">Gestion de parc informatique</td>
-            <td class="date-cell">26/05-05/07</td>
-            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td>
-            <td class="center-x">X</td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="realization-cell">Ticketing</td>
-            <td class="date-cell">26/05-05/07</td>
-            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td>
-            <td class="center-x">X</td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="realization-cell">Support de proximité</td>
-            <td class="date-cell">26/05-05/07</td>
-            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td>
-            <td class="center-x">X</td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="realization-cell">Analyse du côté cybersécurité</td>
-            <td class="date-cell">26/05-05/07</td>
-            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td>
-            <td class="center-x">X</td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-
-          <!-- Section 3 -->
-          <tr class="section-title-row">
-            <td colspan="24">Réalisations en milieu professionnel en cours de seconde année</td>
-          </tr>
-          <tr>
-            <td class="realization-cell">Gestion de parc informatique</td>
-            <td class="date-cell">04/01-13/02</td>
-            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td>
-            <td class="center-x">X</td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="realization-cell">Hotline</td>
-            <td class="date-cell">04/01-13/02</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td>
-            <td class="center-x">X</td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="realization-cell">Ticketing</td>
-            <td class="date-cell">04/01-13/02</td>
-            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td>
-            <td class="center-x">X</td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="realization-cell">Support de proximité</td>
-            <td class="date-cell">04/01-13/02</td>
-            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td>
-            <td class="center-x">X</td><td></td><td></td>
-            <td></td><td class="center-x">X</td><td></td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <tr>
-            <td class="realization-cell">Tutorat de stagiaire</td>
-            <td class="date-cell">04/01-13/02</td>
-            <td></td><td></td><td></td><td></td><td></td><td></td>
-            <td></td><td></td><td></td>
-            <td></td><td></td><td></td>
-            <td class="center-x">X</td><td></td><td></td>
-            <td></td><td></td><td></td>
-            <td></td><td></td><td></td><td class="center-x">X</td>
-          </tr>
-        </tbody>
-      </table>
+        <table class="table-pdf">
+          <thead>
+            <tr>
+              <th rowspan="3" style="width: 200px;">Réalisations</th>
+              <th rowspan="3" class="rotated-th" style="height: 100px;">Période</th>
+              <th colspan="6">C1 : Patrimoine IT</th>
+              <th colspan="3">C2 : Support</th>
+              <th colspan="3">C3 : Web</th>
+              <th colspan="3">C4 : Projet</th>
+              <th colspan="3">C5 : Service</th>
+              <th colspan="4">C6 : Pro</th>
+            </tr>
+            <tr>
+              <th class="rotated-th">C1.1</th><th class="rotated-th">C1.2</th><th class="rotated-th">C1.3</th><th class="rotated-th">C1.4</th><th class="rotated-th">C1.5</th><th class="rotated-th">C1.6</th>
+              <th class="rotated-th">C2.1</th><th class="rotated-th">C2.2</th><th class="rotated-th">C2.3</th>
+              <th class="rotated-th">C3.1</th><th class="rotated-th">C3.2</th><th class="rotated-th">C3.3</th>
+              <th class="rotated-th">C4.1</th><th class="rotated-th">C4.2</th><th class="rotated-th">C4.3</th>
+              <th class="rotated-th">C5.1</th><th class="rotated-th">C5.2</th><th class="rotated-th">C5.3</th>
+              <th class="rotated-th">C6.1</th><th class="rotated-th">C6.2</th><th class="rotated-th">C6.3</th><th class="rotated-th">C6.4</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="section-row"><td colspan="24">Réalisations en formation</td></tr>
+            <tr><td>Portfolio BTS SIO</td><td>2025-26</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="check-cell">X</td><td></td><td></td><td></td><td></td><td></td><td class="check-cell">X</td><td class="check-cell">X</td><td class="check-cell">X</td><td class="check-cell">X</td></tr>
+            <tr><td>Veille Cybersécurité</td><td>2025-26</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="check-cell">X</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="check-cell">X</td><td></td><td class="check-cell">X</td></tr>
+            <tr><td>GSB Mission 1</td><td>Oct 25</td><td></td><td class="check-cell">X</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="check-cell">X</td><td></td><td></td><td class="check-cell">X</td><td class="check-cell">X</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>GSB Mission 2</td><td>Nov 25</td><td></td><td class="check-cell">X</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="check-cell">X</td><td></td><td></td><td class="check-cell">X</td><td class="check-cell">X</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr class="section-row"><td colspan="24">Réalisations en milieu professionnel</td></tr>
+            <tr><td>Stage 1ère année</td><td>Mai-Juil 25</td><td class="check-cell">X</td><td></td><td></td><td></td><td></td><td></td><td></td><td class="check-cell">X</td><td></td><td></td><td></td><td></td><td class="check-cell">X</td><td></td><td></td><td></td><td class="check-cell">X</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Stage 2ème année</td><td>Jan-Fév 26</td><td class="check-cell">X</td><td></td><td></td><td></td><td></td><td></td><td></td><td class="check-cell">X</td><td></td><td></td><td></td><td></td><td class="check-cell">X</td><td></td><td></td><td></td><td class="check-cell">X</td><td></td><td></td><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </section>
+  </div>
 
   <!-- Footer -->
   <footer>
@@ -494,5 +541,50 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Tab Switching Logic
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const cards = document.querySelectorAll('.synthesis-card');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Active button
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Active cards
+        const target = btn.getAttribute('data-tab');
+        cards.forEach(card => {
+          if (card.getAttribute('data-category') === target) {
+            card.classList.add('active');
+          } else {
+            card.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // Modal Logic
+    const modal = document.getElementById('officialModal');
+    const showBtn = document.getElementById('showOfficial');
+    const closeBtn = document.getElementById('closeModal');
+
+    showBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
 </body>
 </html>
