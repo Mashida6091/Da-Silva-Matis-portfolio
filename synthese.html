@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de Synthèse — Matis Da Silva | BTS SIO SISR</title>
+  <meta name="description" content="Tableau de synthèse des réalisations professionnelles de Matis Da Silva pour le BTS SIO SISR.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Specific styles for the summary table */
+    .synthese-container {
+      margin-top: 2rem;
+      overflow-x: auto;
+      background: white;
+      color: black;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .synthese-header {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      border: 2px solid black;
+      margin-bottom: 0;
+    }
+
+    .header-box {
+      border: 1px solid black;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+    }
+
+    .header-box strong {
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .table-synthese {
+      width: 100%;
+      border-collapse: collapse;
+      border: 2px solid black;
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      background-color: white;
+      color: black;
+    }
+
+    .table-synthese th, 
+    .table-synthese td {
+      border: 1px solid black;
+      padding: 5px;
+      vertical-align: middle;
+    }
+
+    .table-synthese thead th {
+      background-color: #f8f9fa;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Diagonal cell */
+    .diagonal-cell {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      background: linear-gradient(to top right, transparent calc(50% - 1px), black, transparent calc(50% + 1px));
+      padding: 0 !important;
+    }
+
+    .diagonal-cell .top-text {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      text-align: right;
+      width: 150px;
+    }
+
+    .diagonal-cell .bottom-text {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      text-align: left;
+      width: 150px;
+    }
+
+    /* Vertical text for competencies */
+    .vertical-text {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-align: left;
+      height: 350px;
+      white-space: nowrap;
+      padding: 10px 5px;
+      font-size: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .competence-group {
+      width: 40px;
+    }
+
+    .sub-competence-header {
+      font-size: 0.65rem;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      height: 250px;
+      text-align: left;
+      font-weight: normal;
+      padding: 5px 2px;
+    }
+
+    .section-title-row {
+      background-color: #f2f2f2 !important;
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .center-x {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .date-cell {
+      width: 80px;
+      text-align: center;
+      font-size: 0.75rem;
+    }
+
+    .realization-cell {
+      max-width: 300px;
+      text-align: left;
+    }
+
+    .realization-cell strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .realization-cell span {
+      font-style: italic;
+      font-size: 0.7rem;
+      color: #333;
+    }
+
+    /* Print styling */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .synthese-container, .synthese-container * {
+        visibility: visible;
+      }
+      .synthese-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+      header, footer, .page-hero, canvas, .page-transition {
+        display: none !important;
+      }
+    }
+
+    /* Adjusting for theme */
+    html.light .synthese-container {
+      background: white;
+    }
+    
+    /* Ensure table text remains black even in dark mode for PDF-like look, or adapt if preferred.
+       BTS SIO docs are usually white with black text. I'll stick to that for authenticity. */
+  </style>
+</head>
+<body>
+
+  <div class="page-transition" id="pageTransition"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- Header -->
+  <header id="main-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo page-link">
+        <span class="logo-bracket">&lt;</span>Matis<span class="logo-dot">.</span><span class="logo-accent">SISR</span><span class="logo-bracket"> /&gt;</span>
+      </a>
+      <nav id="main-nav">
+        <a href="index.html" class="nav-link page-link">Accueil</a>
+        <a href="parcours.html" class="nav-link page-link">Parcours</a>
+        <a href="projets.html" class="nav-link page-link">Projets</a>
+        <a href="competences.html" class="nav-link page-link">Compétences</a>
+        <a href="stages.html" class="nav-link page-link">Stages</a>
+        <a href="certifications.html" class="nav-link page-link">Certifications</a>
+        <a href="veilles.html" class="nav-link page-link">Veilles</a>
+        <a href="synthese.html" class="nav-link active page-link">Synthèse</a>
+        <a href="contact.html" class="nav-link page-link">Contact</a>
+        <button class="theme-toggle" id="themeBtn" aria-label="Changer le thème">
+          <span class="theme-icon" id="themeIcon">🌙</span>
+        </button>
+      </nav>
+      <button class="burger" id="burgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="mobile-link page-link">Accueil</a>
+    <a href="parcours.html" class="mobile-link page-link">Parcours</a>
+    <a href="projets.html" class="mobile-link page-link">Projets</a>
+    <a href="competences.html" class="mobile-link page-link">Compétences</a>
+    <a href="stages.html" class="mobile-link page-link">Stages</a>
+    <a href="certifications.html" class="mobile-link page-link">Certifications</a>
+    <a href="veilles.html" class="mobile-link page-link">Veilles</a>
+    <a href="synthese.html" class="mobile-link active page-link">Synthèse</a>
+    <a href="contact.html" class="mobile-link page-link">Contact</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="page-hero-tag">07 — Récapitulatif</span>
+      <h1 class="page-hero-title">Tableau de Synthèse</h1>
+      <p class="page-hero-subtitle">Récapitulatif des compétences mises en œuvre lors des réalisations professionnelles</p>
+      <div style="margin-top: 20px;">
+        <button onclick="window.print()" class="btn btn-primary">
+          <span>Exporter en PDF / Imprimer</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table Section -->
+  <section class="section" style="padding-top: 0;">
+    <div class="synthese-container reveal">
+      
+      <!-- Header Info -->
+      <div class="synthese-header">
+        <div class="header-box">
+          <strong>NOM et prénom :</strong> Da Silva Matis
+        </div>
+        <div class="header-box">
+          <strong>N° candidat :</strong> 2248023775
+        </div>
+        <div class="header-box">
+          <strong>Centre de formation :</strong> Lycée Benjamin Franklin
+        </div>
+        <div class="header-box">
+          <strong>Option :</strong> SISR
+        </div>
+        <div class="header-box" style="grid-column: span 2;">
+          <strong>Adresse URL du portfolio :</strong> https://mashida6091.github.io/Da-Silva-Matis-portfolio/
+        </div>
+      </div>
+
+      <!-- Main Table -->
+      <table class="table-synthese">
+        <thead>
+          <tr>
+            <th rowspan="3" class="diagonal-cell">
+              <div class="top-text">Compétences mises en œuvre</div>
+              <div class="bottom-text">Réalisations professionnelles (intitulé et liste des documents et productions associés)</div>
+            </th>
+            <th rowspan="3" class="vertical-text" style="width: 30px; height: auto;">Période (sous la forme du JJ/MM/AA au JJ/MM/AA)</th>
+            <th colspan="6">Gérer le patrimoine informatique</th>
+            <th colspan="3">Répondre aux incidents et aux demandes d'assistance et d'évolution</th>
+            <th colspan="3">Développer la présence en ligne de l'organisation</th>
+            <th colspan="3">Travailler en mode projet</th>
+            <th colspan="3">Mettre à disposition des utilisateurs un service informatique</th>
+            <th colspan="4">Organiser son développement professionnel</th>
+          </tr>
+          <tr>
+            <!-- Subheaders rotated -->
+            <th class="sub-competence-header">Recenser et identifier les ressources numériques</th>
+            <th class="sub-competence-header">Exploiter des référentiels, normes et standards adoptés par le prestataire</th>
+            <th class="sub-competence-header">Mettre en place et vérifier les niveaux d'habilitation associés à un service</th>
+            <th class="sub-competence-header">Vérifier les conditions de la continuité d'un service informatique</th>
+            <th class="sub-competence-header">Gérer des sauvegardes</th>
+            <th class="sub-competence-header">Vérifier le respect des règles d'utilisation des ressources numériques</th>
+            
+            <th class="sub-competence-header">Collecter, suivre et orienter les demandes</th>
+            <th class="sub-competence-header">Traiter des demandes concernant les services réseaux et système, applicatifs</th>
+            <th class="sub-competence-header">Traiter des demandes concernant les applications</th>
+            
+            <th class="sub-competence-header">Participer à la valorisation de l'image de l'organisation sur les médias numériques</th>
+            <th class="sub-competence-header">Référencer un service en ligne de l'organisation et mesurer sa visibilité</th>
+            <th class="sub-competence-header">Participer à l'évolution d'un site Web exploitant les données de l'organisation</th>
+            
+            <th class="sub-competence-header">Analyser les objectifs et les modalités d'organisation d'un projet</th>
+            <th class="sub-competence-header">Planifier les activités</th>
+            <th class="sub-competence-header">Évaluer les indicateurs de suivi d'un projet et analyser les écarts</th>
+            
+            <th class="sub-competence-header">Réaliser les tests d'intégration et d'acceptation d'un service</th>
+            <th class="sub-competence-header">Déployer un service</th>
+            <th class="sub-competence-header">Accompagner les utilisateurs dans la mise en œuvre d'un service</th>
+            
+            <th class="sub-competence-header">Mettre en place son environnement d'apprentissage personnel</th>
+            <th class="sub-competence-header">Mettre en œuvre des outils et stratégies de veille technologique</th>
+            <th class="sub-competence-header">Gérer son identité professionnelle</th>
+            <th class="sub-competence-header">Développer son projet professionnel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Section 1 -->
+          <tr class="section-title-row">
+            <td colspan="24">Réalisations en cours de formation</td>
+          </tr>
+          <tr>
+            <td class="realization-cell">
+              <strong>Conception, structuration et mise en ligne du portfolio BTS SIO</strong>
+              <span>Documents/productions : site GitHub Pages, page d'accueil, pages projets/stages/certifications, CV en ligne, liens vers rapports et preuves</span>
+            </td>
+            <td class="date-cell">01/09/25<br>au<br>20/04/26</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td> <!-- C1 -->
+            <td></td><td></td><td></td> <!-- C2 -->
+            <td></td><td></td><td></td> <!-- C3 -->
+            <td></td><td class="center-x">X</td><td></td> <!-- C4 -->
+            <td></td><td></td><td></td> <!-- C5 -->
+            <td class="center-x">X</td><td class="center-x">X</td><td class="center-x">X</td><td class="center-x">X</td> <!-- C6 -->
+          </tr>
+          <tr>
+            <td class="realization-cell">
+              <strong>Veille technologique cybersécurité</strong>
+            </td>
+            <td class="date-cell">25/09/25<br>au<br>13/03/26</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td> <!-- C1 -->
+            <td></td><td></td><td></td> <!-- C2 -->
+            <td></td><td class="center-x">X</td><td></td> <!-- C3 -->
+            <td></td><td></td><td></td> <!-- C4 -->
+            <td></td><td></td><td></td> <!-- C5 -->
+            <td></td><td class="center-x">X</td><td></td><td class="center-x">X</td> <!-- C6 -->
+          </tr>
+          <tr>
+            <td class="realization-cell">
+              <strong>GSB Mission 1 - Segmentation réseau et sécurisation d'un switch Cisco</strong>
+              <span>Documents/productions : rapport HTML/PDF, schéma VLAN, fiche de procédure MATLAB VLAN SSII, fiche de recette, plan de câblage</span>
+            </td>
+            <td class="date-cell">01/10/25<br>au<br>31/10/25</td>
+            <td></td><td class="center-x">X</td><td></td><td></td><td></td><td></td> <!-- C1 -->
+            <td></td><td></td><td></td> <!-- C2 -->
+            <td></td><td></td><td></td> <!-- C3 -->
+            <td class="center-x">X</td><td></td><td></td> <!-- C4 -->
+            <td class="center-x">X</td><td class="center-x">X</td><td></td> <!-- C5 -->
+            <td></td><td></td><td></td><td></td> <!-- C6 -->
+          </tr>
+          <tr>
+            <td class="realization-cell">
+              <strong>GSB Mission 2 - Interconnexion VLAN et accès Internet via pare-feu Stormshield</strong>
+              <span>Documents/productions : rapport HTML/PDF, schéma réseau, plan d'adressage, captures de tests NAT/routage/connectivité</span>
+            </td>
+            <td class="date-cell">01/11/25<br>au<br>30/11/25</td>
+            <td></td><td class="center-x">X</td><td></td><td></td><td></td><td></td> <!-- C1 -->
+            <td></td><td></td><td></td> <!-- C2 -->
+            <td></td><td></td><td></td> <!-- C3 -->
+            <td class="center-x">X</td><td></td><td></td> <!-- C4 -->
+            <td class="center-x">X</td><td class="center-x">X</td><td></td> <!-- C5 -->
+            <td></td><td></td><td></td><td></td> <!-- C6 -->
+          </tr>
+          <tr>
+            <td class="realization-cell">
+              <strong>Déploiement d'un service DHCP sous Windows Server avec validation client</strong>
+              <span>Documents/productions : rapport HTML, PDF DHCPavecWAMP, captures de configuration de l'étendue et tests côté client</span>
+            </td>
+            <td class="date-cell">01/02/26<br>au<br>15/02/26</td>
+            <td></td><td class="center-x">X</td><td></td><td></td><td></td><td></td> <!-- C1 -->
+            <td></td><td></td><td></td> <!-- C2 -->
+            <td></td><td></td><td></td> <!-- C3 -->
+            <td class="center-x">X</td><td></td><td></td> <!-- C4 -->
+            <td class="center-x">X</td><td class="center-x">X</td><td></td> <!-- C5 -->
+            <td></td><td></td><td></td><td></td> <!-- C6 -->
+          </tr>
+
+          <!-- Section 2 -->
+          <tr class="section-title-row">
+            <td colspan="24">Réalisations en milieu professionnel en cours de première année</td>
+          </tr>
+          <tr>
+            <td class="realization-cell">Gestion de parc informatique</td>
+            <td class="date-cell">26/05-05/07</td>
+            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td>
+            <td class="center-x">X</td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="realization-cell">Ticketing</td>
+            <td class="date-cell">26/05-05/07</td>
+            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td>
+            <td class="center-x">X</td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="realization-cell">Support de proximité</td>
+            <td class="date-cell">26/05-05/07</td>
+            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td>
+            <td class="center-x">X</td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="realization-cell">Analyse du côté cybersécurité</td>
+            <td class="date-cell">26/05-05/07</td>
+            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td>
+            <td class="center-x">X</td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+
+          <!-- Section 3 -->
+          <tr class="section-title-row">
+            <td colspan="24">Réalisations en milieu professionnel en cours de seconde année</td>
+          </tr>
+          <tr>
+            <td class="realization-cell">Gestion de parc informatique</td>
+            <td class="date-cell">04/01-13/02</td>
+            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td>
+            <td class="center-x">X</td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="realization-cell">Hotline</td>
+            <td class="date-cell">04/01-13/02</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td>
+            <td class="center-x">X</td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="realization-cell">Ticketing</td>
+            <td class="date-cell">04/01-13/02</td>
+            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td>
+            <td class="center-x">X</td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="realization-cell">Support de proximité</td>
+            <td class="date-cell">04/01-13/02</td>
+            <td class="center-x">X</td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td>
+            <td class="center-x">X</td><td></td><td></td>
+            <td></td><td class="center-x">X</td><td></td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td class="realization-cell">Tutorat de stagiaire</td>
+            <td class="date-cell">04/01-13/02</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td></td><td></td><td></td>
+            <td></td><td></td><td></td>
+            <td class="center-x">X</td><td></td><td></td>
+            <td></td><td></td><td></td>
+            <td></td><td></td><td></td><td class="center-x">X</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="logo footer-logo page-link">
+        <span class="logo-bracket">&lt;</span>Matis<span class="logo-dot">.</span><span class="logo-accent">SISR</span><span class="logo-bracket"> /&gt;</span>
+      </a>
+      <p class="footer-text">© 2026 — Da Silva Matis | Portfolio BTS SIO SISR</p>
+      <p class="footer-sub">Conçu avec passion pour la tech</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
